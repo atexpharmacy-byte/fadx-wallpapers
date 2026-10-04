@@ -399,7 +399,8 @@ def render(sb, scenes, out, tag, max_total=None):
     for n in range(int(total * FPS)):
         t = n / FPS; i = next(j for j, (a, b) in enumerate(spans) if t < b or j == len(spans) - 1); a, b = spans[i]
         f_ = fr(i, min(max((t - a) / (b - a), 0), 1))
-        if i > 0 and t - a < 0.35: f_ = Image.blend(fr(i - 1, 1.0), f_, (t - a) / 0.35)
+        XF = sb.get('xfade', 0.35)
+        if i > 0 and t - a < XF: f_ = Image.blend(fr(i - 1, 1.0), f_, ((t - a) / XF) ** 0.5 * ((t - a) / XF) ** 0.5)
         if hook and i == 0:
             ho = hook_overlay(hook, sb, t); f_.paste(ho, ((W - ho.width)//2, 230), ho)
         elif bimg is not None and (scenes[i].get('image') or scenes[i].get('clip')) and scenes[i].get('badge', True):
