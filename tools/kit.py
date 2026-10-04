@@ -143,9 +143,10 @@ parts = [
  part('tiktok', 'Step 3', 'TikTok', 'Upload the same MP4 and pick <b>%s</b> as the cover. Under More options, turn on <b>AI-generated content</b>.' % e(K.get('cover', 'the frame with the hook title')),
    field('Caption', 'tt-cap', t['caption'], 'chars') +
    (field('A/B hooks: reuse as on-screen text or caption opener on a repost', 'tt-alt', '\n'.join(t['alt_hooks'])) if t.get('alt_hooks') else '') +
-   kv(t['settings'])),
+   (field('中文 caption (for the Mandarin video: %s)' % K.get('video_zh', ''), 'tt-zh', t['caption_zh'], 'chars') if t.get('caption_zh') else '') + kv(t['settings'])),
  part('meta', 'Step 4', 'Facebook + Instagram Reels', 'Meta Business Suite → Create Reel → tick both Facebook and Instagram. Turn on the AI label if prompted.',
-   field('Caption', 'm-cap', m['caption']) + field('First comment (Facebook, pin it)', 'm-com', m['first_comment'])),
+   field('Caption', 'm-cap', m['caption']) + field('First comment (Facebook, pin it)', 'm-com', m['first_comment']) +
+   (field('中文 caption', 'm-zh', m['caption_zh']) if m.get('caption_zh') else '')),
  part('gbp', 'Step 5', 'Google Business Profile post', 'Google Search your outlet name → Add update → upload the image → paste the text → add a button. Never type phone numbers, links or hashtags in the text: Google removes those posts.',
    '<div class="two">' + fig(g['image'], '1:1 square, 1200×1200 (min 720×720), little text', 'Google Business post image') + '<div>' + field('Post text', 'g-text', g['text'], 'chars') + kv(dict([('Post type', g.get('type','Update')), ('Button', g['button'])] + ([('Video option', g['video'] + ' (≤30s, upload instead of or after the photo)')] if g.get('video') else []))) + '</div></div>'),
  part('whatsapp', 'Step 6', 'WhatsApp broadcast', 'Send the MP4 first, then this message. Paste the link where marked.', field('Message', 'w-msg', K['whatsapp'], 'words')),
@@ -161,7 +162,7 @@ top = ('<header class="top"><div class="wrap">' + LOGO + '<div class="eyebrow">A
        '<p>Everything you need to post this episode: blog, search meta, YouTube, TikTok, Facebook and Instagram, Google Business and WhatsApp. Work down the checklist in order.</p>'
        '<div class="meta-row"><span>Video: %s · %s</span>%s<span>Theme: %s</span><span>Outlet: %s</span></div></div></header>') % (
        e(K['date']), e(K['title_h1']), e(K['video_file']), e(K['video_meta']),
-       ''.join('<span>%s</span>' % e(x) for x in (K['gbp'].get('video'),) if x), e(K['theme']), e(K['outlet']))
+       ''.join('<span>%s</span>' % e(x) for x in (K.get('video_zh'), K['gbp'].get('video')) if x), e(K['theme']), e(K['outlet']))
 page = (head + CSS + '\n</style></head><body style="margin:0">' + top +
         '<div class="wrap"><div class="grid">' + rail + '<main><div class="note red"><strong>Compliance check before posting</strong>' + e(K['compliance']) + '</div>' +
         ''.join(parts) + '</main></div></div><template id="blog-src">' + BLOG + '</template>\n<script>\nvar IMG=' +

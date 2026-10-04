@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""marketer.py v3 — storyboard JSON -> narrated 9:16 story video (RM0, offline).
+"""marketer.py v4.2 (character voices + Veo/clip ambience + end-card sting) — storyboard JSON -> narrated 9:16 story video (RM0, offline).
 usage: python3 marketer.py story.json <Episode>_Video.mp4
 also writes <Episode>_Video_cover.jpg, <Episode>_Video_GBP30.mp4 (<=30s for Google Business)
+and <Episode>_Video_ZH.mp4 when every scene has line_zh (Mandarin voice + Chinese captions)
 scenes with "clip" (PixVerse/Kling mp4) play the motion clip, time-stretched to the scene
 needs: kokoro.onnx + voices.bin beside this file, ffmpeg, pip kokoro-onnx soundfile pillow numpy"""
 import json, sys, os, subprocess, numpy as np, soundfile as sf
@@ -12,7 +13,9 @@ W, H, FPS, SS = 1080, 1920, 30, 1.15
 CW, CH = int(W*SS), int(H*SS)
 FONT = next((f for f in ['/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf',
              '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'] if os.path.exists(f)), None)
-def font(sz, t=''): return ImageFont.truetype(FONT, int(sz*SS))
+CJKF = next((f for f in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc',
+             '/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc'] if os.path.exists(f)), FONT)
+def font(sz, t=''): return ImageFont.truetype(CJKF if any('\u4e00' <= c <= '\u9fff' for c in t) else FONT, int(sz*SS))
 def S(v): return int(v*SS)
 def C(c): return tuple(c) if isinstance(c, list) else c
 
@@ -139,17 +142,67 @@ def render_scene(sc):
     for e in sc.get('elements',[]): draw_el(im,d,e)
     return im
 
-def capfont(t, sz): return ImageFont.truetype(FONT, sz)
+# ---------- v2: fonts per language ----------
+CJK = next((f for f in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc',
+            '/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc'] if os.path.exists(f)), FONT)
+def is_cjk(t): return any('\u4e00' <= ch <= '\u9fff' for ch in t)
+def capfont(t, sz): return ImageFont.truetype(CJK if is_cjk(t) else FONT, sz)
 
 # ---------- audio ----------
-def tts(sb, lines):
+VOICECAST = None
+def load_cast(sb):
+    """voicecast.json: character name -> {mix:{kokoro_voice:weight}, speed, pitch (semitones)}"""
+    global VOICECAST
+    if VOICECAST is None:
+        p = sb.get('voicecast', 'voicecast.json')
+        if not os.path.exists(p): p = os.path.join(HERE, 'voicecast.json')
+        VOICECAST = json.load(open(p)) if os.path.exists(p) else {}
+    return VOICECAST
+
+def pitch_shift(a, sr, semis):
+    """pitch shift without changing duration (ffmpeg asetrate + atempo)"""
+    if not semis: return a
+    import tempfile
+    r = 2 ** (semis / 12); d = tempfile.mkdtemp(); i, o = os.path.join(d, 'i.wav'), os.path.join(d, 'o.wav')
+    sf.write(i, a, sr)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', i, '-af', f'asetrate={int(sr*r)},aresample={sr},atempo={1/r:.5f}', o], check=True)
+    b, _ = sf.read(o, dtype='float32'); return b
+
+TAG = __import__('re').compile(r'\s*\[(laugh|chuckle|cough|sigh|gasp)\]\s*')
+def untag(t): return TAG.sub(' ', t).strip()
+
+def speak(k, sb, text, who=None, voice=None):
+    text = untag(text)
+    lang = sb.get('lang', 'en-us'); cast = load_cast(sb)
+    c = cast.get(who, {}) if who else {}
+    if c.get('mix'):
+        style = sum(w * k.get_voice_style(v) for v, w in c['mix'].items()) / sum(c['mix'].values())
+    else:
+        style = voice or c.get('voice') or sb.get('voice', 'zf_xiaoxiao' if lang == 'cmn' else 'af_heart')
+    a, sr = k.create(text, voice=style, speed=c.get('speed', sb.get('speed', 1.0)) * sb.get('speed_scale', 1.0), lang=lang)
+    return pitch_shift(a.astype(np.float32), sr, c.get('pitch', 0)), sr
+
+def tts(sb, scenes):
+    """one audio clip per scene. scene 'line' = narrator; scene 'lines' = dialogue [{who, text, wav?}]
+    ('wav' = pre-made line audio, e.g. Chatterbox output, used instead of Kokoro)"""
     from kokoro_onnx import Kokoro
     k = Kokoro(os.path.join(HERE, 'kokoro.onnx'), os.path.join(HERE, 'voices.bin'))
-    voice = sb.get('voice', 'af_heart')
-    out = []
-    for ln, v in lines:
-        a, sr = k.create(ln, voice=v or voice, speed=sb.get('speed', 1.0), lang='en-us')
-        out.append(a.astype(np.float32))
+    out = []; sr = 24000
+    for sc in scenes:
+        parts = sc.get('lines') or [{'who': sc.get('who'), 'text': sc['line'], 'voice': sc.get('voice'), 'wav': sc.get('wav')}]
+        seg = []
+        for ln in parts:
+            if ln.get('wav') and os.path.exists(ln['wav']):
+                a, r = sf.read(ln['wav'], dtype='float32')
+                if a.ndim > 1: a = a.mean(1)
+                if r != sr:
+                    import tempfile; d = tempfile.mkdtemp(); o = os.path.join(d, 'o.wav')
+                    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', ln['wav'], '-ac', '1', '-ar', str(sr), o], check=True); a, _ = sf.read(o, dtype='float32')
+                a = a / (np.max(np.abs(a)) + 1e-9) * 0.9
+            else:
+                a, sr = speak(k, sb, ln['text'], ln.get('who'), ln.get('voice')); a = a / (np.max(np.abs(a)) + 1e-9) * 0.9
+            seg += [a, np.zeros(int(sb.get('line_gap', 0.2) * sr), np.float32)]
+        out.append(np.concatenate(seg[:-1]))
     return out, sr
 
 def synth_music(total, sr, mood):
@@ -178,6 +231,15 @@ def synth_music(total, sr, mood):
     m *= np.clip(tt / 1.5, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
     return m
 
+def sting(sr):
+    """Uncle Lim 4-note sting for the end card (sonic brand): C5 E5 G5 C6, soft bell tone, 1.4s. Never change the notes."""
+    notes = [523.25, 659.25, 783.99, 1046.5]; step = 0.22; tail = 0.75
+    n = int((step * 3 + tail) * sr); x = np.zeros(n, np.float32)
+    for i, f in enumerate(notes):
+        s0 = int(i * step * sr); L_ = n - s0; t_ = np.arange(L_) / sr
+        x[s0:] += 0.16 * (np.sin(2*np.pi*f*t_) + 0.35*np.sin(4*np.pi*f*t_) + 0.1*np.sin(6*np.pi*f*t_)) * np.exp(-t_ * (2.2 if i < 3 else 1.6))
+    return x
+
 def whoosh(sr, dur=0.45):
     n = int(dur * sr); t_ = np.arange(n) / sr
     x = np.random.default_rng(3).standard_normal(n).astype(np.float32)
@@ -185,8 +247,7 @@ def whoosh(sr, dur=0.45):
     return 0.05 * x * np.sin(np.pi * t_ / dur) ** 2
 
 def build_audio(sb, scenes, work, tag):
-    lines = [(sc['line'], sc.get('voice')) for sc in scenes]
-    clips, sr = tts(sb, lines)
+    clips, sr = tts(sb, scenes)
     gap = sb.get('gap', 0.45); t = 0.4; timing = []
     for a in clips: timing.append((t, len(a) / sr)); t += len(a) / sr + gap
     total = t + 0.8
@@ -200,6 +261,24 @@ def build_audio(sb, scenes, work, tag):
         env = np.convolve(np.abs(v), np.ones(int(0.25 * sr)) / int(0.25 * sr), 'same')
         duck = 1 - 0.65 * np.clip(env / 0.08, 0, 1)
         mix += m * duck * 1.6
+    # immersive ambience: Veo/PixVerse clip sound under the voices (ducked like the music)
+    env = np.convolve(np.abs(v), np.ones(int(0.25 * sr)) / int(0.25 * sr), 'same'); duck = 1 - 0.7 * np.clip(env / 0.08, 0, 1)
+    def amb(path, n):
+        if not path or not os.path.exists(path): return None
+        r = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', path, '-vn', '-ac', '1', '-ar', str(sr), '-f', 'f32le', '-'], capture_output=True).stdout
+        x = np.frombuffer(r, np.float32)
+        if len(x) < sr // 2: return None
+        x = np.tile(x, n // len(x) + 1)[:n]; x = x / (np.max(np.abs(x)) + 1e-9)
+        f = min(int(0.4 * sr), n // 4); x[:f] *= np.linspace(0, 1, f); x[-f:] *= np.linspace(1, 0, f); return x
+    bed = amb(sb.get('ambience'), len(mix))  # episode-wide bed (e.g. sound of a Veo establishing shot)
+    if bed is not None: mix += bed * duck * sb.get('ambience_gain', 0.18)
+    spans = [(0 if i == 0 else st - gap / 2, total if i == len(timing) - 1 else timing[i + 1][0] - gap / 2) for i, (st, _) in enumerate(timing)]
+    for sc, (a0, a1) in zip(scenes, spans):
+        src = sc.get('ambience') or (sc.get('clip') if sc.get('clip_audio') else None)
+        i0, i1 = int(a0 * sr), min(len(mix), int(a1 * sr)); x = amb(src, i1 - i0)
+        if x is not None: mix[i0:i1] += x * duck[i0:i1] * sc.get('ambience_gain', 0.3)
+    if sb.get('sting', True) and len(timing) > 1 and not scenes[-1].get('image') and not scenes[-1].get('clip'):
+        st = sting(sr); i = max(0, int((timing[-1][0] - gap / 2) * sr)); mix[i:i+len(st)] += st[:len(mix) - i]
     if sb.get('sfx', True):
         w = whoosh(sr)
         for st, _ in timing[1:]:
@@ -212,10 +291,17 @@ def build_audio(sb, scenes, work, tag):
 
 # ---------- captions (word-highlight, proportional timing) ----------
 def chunks_for(line, n_words):
+    if is_cjk(line):
+        parts = [p for p in __import__('re').split(r'(?<=[，。！？、,.!?])', line) if p.strip()]
+        out = []
+        for p in parts:
+            while len(p) > 12: out.append(p[:12]); p = p[12:]
+            if p: out.append(p)
+        return [[c for c in ch] for ch in out]  # tokens = characters
     w = line.split(); return [w[i:i+n_words] for i in range(0, len(w), n_words)]
 
 def caption_img(tokens, active, sb):
-    sep = ' '
+    cjk = is_cjk(''.join(tokens)); sep = '' if cjk else ' '
     sz = sb.get('caption_size', 78); text = sep.join(tokens)
     f = capfont(text, sz)
     while f.getlength(text) > W - 120 and sz > 40: sz -= 4; f = capfont(text, sz)
@@ -238,8 +324,8 @@ def hook_overlay(text, sb, u):
     """Big hook title for scene 1 (top third, under TikTok's top bar)."""
     im = Image.new('RGBA', (W, 520), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     sz = sb.get('hook_size', 88); f = capfont(text, sz)
-    words = text.split(); lines = []; cur = ''
-    sep = ' '
+    words = text if is_cjk(text) else text.split(); lines = []; cur = ''
+    sep = '' if is_cjk(text) else ' '
     for wd in words:
         trial = (cur + sep + wd) if cur else wd
         if f.getlength(trial) > W - 140 and cur: lines.append(cur); cur = wd
@@ -289,7 +375,7 @@ def render(sb, scenes, out, tag, max_total=None):
     timing, total, GAP, wav = build_audio(sb, scenes, work, tag)
     tries = 0
     while max_total and total > max_total and tries < 3:  # fit by speeding narration (cap 1.3x)
-        sb = dict(sb); sb['speed'] = min(1.3, sb.get('speed', 1.0) * (total - 1.2) / (max_total - 1.4))
+        sb = dict(sb); sb['speed_scale'] = min(1.3, sb.get('speed_scale', 1.0) * (total - 1.2) / (max_total - 1.4))
         timing, total, GAP, wav = build_audio(sb, scenes, work, tag); tries += 1
     imgs = [render_scene(s) for s in scenes]  # stills; scenes with a 'clip' use the motion clip instead (image = fallback)
     caps = []; nw = sb.get('caption_words', 4)
@@ -334,7 +420,11 @@ def render(sb, scenes, out, tag, max_total=None):
 
 # ---------- main ----------
 if __name__ == '__main__':
-    sb = json.load(open(sys.argv[1])); out = sys.argv[2] if len(sys.argv) > 2 else sb.get('out', 'story.mp4')
+    sb = json.load(open(sys.argv[1]))
+    for sc in sb['scenes']:
+        if sc.get('lines'): sc['line'] = ' '.join(untag(l['text']) for l in sc['lines'])
+        else: sc['line'] = untag(sc['line'])
+    out = sys.argv[2] if len(sys.argv) > 2 else sb.get('out', 'story.mp4')
     WORK = os.path.dirname(os.path.abspath(out)) or '.'
     total = render(sb, sb['scenes'], out, 'main')
     print(f'OK {out} {total:.1f}s {len(sb["scenes"])} scenes')
@@ -344,3 +434,10 @@ if __name__ == '__main__':
         sc30 = [s for s in sb['scenes'] if s.get('short', True)]
         t30 = render(dict(sb), sc30, base + '_GBP30.mp4', 'gbp', max_total=29.5)
         print(f'OK {base}_GBP30.mp4 {t30:.1f}s' + ('  (still over 30s: mark more scenes "short": false)' if t30 > 30 else ''))
+    # Mandarin version only if story.json sets zh true AND every scene has line_zh (Yeoh: English only, so this stays off)
+    if sb.get('zh', False) and all(s.get('line_zh') for s in sb['scenes']):
+        sbz = dict(sb); sbz['lang'] = 'cmn'; sbz['voice'] = sb.get('voice_zh', 'zf_xiaoxiao'); sbz['speed'] = sb.get('speed_zh', 1.0)
+        sbz['hook_text'] = sb.get('hook_text_zh'); sbz['badge'] = sb.get('badge_zh', sb.get('badge'))
+        scz = [dict(s, line=s['line_zh'], elements=s.get('elements_zh', s.get('elements', []))) for s in sb['scenes']]
+        tz = render(sbz, scz, base.replace('_Video', '') + '_Video_ZH.mp4' if base.endswith('_Video') else base + '_ZH.mp4', 'zh')
+        print(f'OK Mandarin {tz:.1f}s')

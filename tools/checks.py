@@ -18,15 +18,18 @@ bad = []
 # 1. MASA scheduled conditions: never named anywhere (video lines, captions, hashtags, blog, schema, alt text)
 MASA = [r'diabet\w*', r'kencing manis', r'hypertensi\w*', r'darah tinggi', r'high blood pressure', r'heart disease', r'penyakit jantung',
         r'kidney disease', r'penyakit buah pinggang', r'epileps\w*', r'penyakit sawan', r'asthma\w*', r'penyakit lelah', r'cancer\w*', r'kanser',
-        r'infertil\w*', r'mandul', r'impoten\w*']
+        r'infertil\w*', r'mandul', r'impoten\w*',
+        '糖尿病', '高血压', '心脏病', '肾病', '肾脏病', '癫痫', '哮喘', '癌', '不孕', '阳痿']
 CLAIMS = [r'\bcures?\b', r'\bcured\b', r'\btreats?\b(?!ment plan)', r'\bprevents?\b', r'\bheals (?:your|you|the)\b', r'\bguarantee\w*', r'\bmiracle\b', r'\b100% safe\b']
 corpus = {
-  'video lines': ' '.join(sc.get('line', '') for sc in S.get('scenes', [])) + ' ' + S.get('hook_text', ''),
+  'video lines': ' '.join(sc.get('line', '') + ' ' + ' '.join(l.get('text', '') for l in sc.get('lines', [])) for sc in S.get('scenes', [])) + ' ' + S.get('hook_text', ''),
+  'Mandarin lines': ' '.join(sc.get('line_zh', '') for sc in S.get('scenes', [])) + ' ' + S.get('hook_text_zh', '') +
+                    ' ' + json.dumps([sc.get('elements_zh', []) for sc in S.get('scenes', [])], ensure_ascii=False),
   'video cards': json.dumps([sc.get('elements', []) for sc in S.get('scenes', [])], ensure_ascii=False),
   'blog': BLOG,
   'youtube': ' '.join([K['youtube']['title'], K['youtube']['description'], K['youtube']['tags']]),
-  'tiktok': K['tiktok']['caption'] + ' ' + ' '.join(K['tiktok'].get('alt_hooks', [])),
-  'facebook/instagram': K['meta']['caption'] + ' ' + K['meta']['first_comment'],
+  'tiktok': K['tiktok']['caption'] + ' ' + K['tiktok'].get('caption_zh', '') + ' ' + ' '.join(K['tiktok'].get('alt_hooks', [])),
+  'facebook/instagram': K['meta']['caption'] + ' ' + K['meta']['first_comment'] + ' ' + K['meta'].get('caption_zh', ''),
   'google business': K['gbp']['text'], 'whatsapp': K['whatsapp'],
   'blog meta': ' '.join([K['blog']['title'], K['blog']['search_description'], K['blog']['labels'], K['blog']['lsi']]),
 }
@@ -42,29 +45,45 @@ for where, txt in corpus.items():
 for p in CLAIMS:
     m = re.search(p, BLOG_TEXT.lower())
     if m: bad.append(f'Claim word "{m.group(0)}" in blog text (rephrase: "supports", "part of a routine")')
-# 1b. Implied conditions: 2+ classic signs of ONE scheduled condition in the same channel = MASA risk even if never named
-SIGNS = {
-  'diabetes': [r'thirst\w*', r'frequent (?:toilet|urinat\w*|pee\w*)|(?:running|run|rush\w*|go\w*|trips?) to the (?:toilet|loo|bathroom)|(?:toilet|bathroom|pee\w*) (?:trips|a lot|often|again|many times)', r'slow(?:ly)? heal\w*|wounds? (?:not|won.t|don.t) heal', r'blurr?y (?:eyes|vision)', r'tingl\w*|numb (?:feet|toes|hands)', r'(?:sudden|unexplained) weight loss'],
-  'hypertension': [r'headaches?', r'dizz\w*', r'nose ?bleeds?', r'pounding (?:head|heart)'],
-  'heart disease': [r'chest (?:pain|tight\w*|pressure)', r'short(?:ness)? of breath|breathless\w*', r'left arm', r'cold sweat\w*'],
-  'asthma': [r'wheez\w*', r'tight chest', r'cough\w* at night|night cough\w*', r'short(?:ness)? of breath|breathless\w*'],
-  'kidney disease': [r'foamy (?:urine|pee)', r'swollen (?:ankles|feet|legs)', r'puffy eyes', r'(?:less|little) (?:urine|pee)'],
-}
-for where, txt in list(corpus.items()) + [('blog text', BLOG_TEXT)]:
-    if where == 'blog': continue
-    low = txt.lower()
-    for cond, pats in SIGNS.items():
-        hit = [m.group(0) for p in pats for m in [re.search(p, low)] if m]
-        if len(hit) >= 2: bad.append(f'MASA: {where} lists {len(hit)} classic signs of {cond} {hit} (implies the condition; use habits, not a symptom list)')
+sc0 = (S.get('scenes') or [{}])[0]; hook_now = sc0.get('line') or ' '.join(l.get('text', '') for l in sc0.get('lines', []))
+# 1b. implied conditions: 2+ classic signs of one scheduled condition, or numeric readings
+CLUSTERS = {'blood sugar signs': [r'thirst', r'frequent (?:toilet|urinat|pee)', r'slow[- ]heal', r'blurr?y (?:vision|eyes?)', r'numb (?:feet|toes)'],
+            'blood pressure / heart signs': [r'pounding head', r'nose ?bleed', r'chest (?:pain|tight)', r'palpitation'],
+            'breathing signs': [r'wheez', r'short(?:ness)? of breath', r'chest tight', r'night(?:time)? cough']}
+ALL = ' '.join(corpus.values()).lower()
+for name, pats in CLUSTERS.items():
+    hit = [p for p in pats if re.search(p, ALL)]
+    if len(hit) >= 2: bad.append(f'MASA: {len(hit)} classic {name} together ({", ".join(hit)}) implies a scheduled condition; tell it through habits')
+m = re.search(r'\b\d+(?:\.\d+)?\s*(?:mmol|mg/dl|mmhg)\b|\b\d{2,3}\s*/\s*\d{2,3}\b', ALL)
+if m: bad.append(f'MASA: numeric reading "{m.group(0)}"')
+if 'aisyah' in (ALL + ' ' + json.dumps(S).lower()): bad.append('Aisyah has left the series (Yeoh, 4 Oct 2026): never write, voice, draw or mention her')
+if 'medicpak' in ALL: bad.append('MedicPak is discontinued: use Pilcube')
+if 'pilcube' in K['gbp']['text'].lower(): bad.append('GBP: Pilcube is medicine delivery, keep it out of Google Business posts')
+if '286 2923' in ALL or '2862923' in ALL: bad.append('Pilcube support number in copy')
+if re.search(r'oncohelp|stand against prediabet|respiratory teleconsult', ALL): bad.append('Service name holds a scheduled condition (OncoHelp / ASAP / Respiratory Teleconsult): never feature by name')
 
-# 1c. Numeric health readings: never (no BP, sugar, cholesterol or similar values)
-READ = [r'\b(?:9\d|1\d\d|2[0-4]\d)\s*/\s*(?:[5-9]\d|1[0-3]\d)\b', r'\d+(?:\.\d+)?\s*(?:mmol|mg\s*/\s*dl|mmhg)', r'\bhba1c\b|\ba1c\b',
-        r'(?:sugar|glucose|pressure|cholesterol|bp)\s+(?:level|reading|of|is|was|at|=|:)?\s*(?:only\s+|around\s+|about\s+)?\d+(?:\.\d+)?\b(?!\s*(?:g\b|grams?|teaspoons?|tsp|%|kcal|calories|minutes|min|times|cups?|ml))']
-for where, txt in list(corpus.items()) + [('blog text', BLOG_TEXT)]:
-    if where == 'blog': continue
-    for p in READ:
-        m = re.search(p, txt.lower())
-        if m: bad.append(f'Numeric reading "{m.group(0)}" in {where} (never show readings; say "a quick check")')
+# 1c. story craft (future episodes)
+BANNED = r'^\s*(remember to|it\'?s important|make sure|don\'?t forget|you should|always|never)\b'
+for sc in S.get('scenes', []):
+    if sc.get('line') and re.search(BANNED, sc['line'], re.I): bad.append(f'Lecture narration (banned opener): "{sc["line"]}"')
+    for ln in sc.get('lines', []):
+        t = ln.get('text', '')
+        if re.search(BANNED, t, re.I): bad.append(f'Lecture line (banned opener): "{t}"')
+        if len(t.split()) > 12: bad.append(f'Line over 12 words: "{t}"')
+        if len(re.findall(r'\b(lah|leh|lor|meh|kan)\b', t, re.I)) > 1: bad.append(f'More than one Manglish particle: "{t}"')
+scs = S.get('scenes', [])
+if scs:
+    if re.match(r'\s*previously', hook_now, re.I) or re.match(r'\s*previously', S.get('hook_text', ''), re.I): bad.append('Hook: scene 1 must open mid-conflict, not with "Previously…"')
+    nlines = sum(len(sc.get('lines', [])) for sc in scs)
+    dlg = sum(1 for sc in scs if sc.get('lines')); img = [sc for sc in scs if sc.get('image') or sc.get('clip')]
+    if nlines > 3: bad.append(f'Story: {nlines} dialogue lines (max 3; narrator-led ~90/10, keep dialogue for the key moments)')
+    if dlg > 2: bad.append(f'Story: {dlg} dialogue scenes (max 2; Mei narrates the rest)')
+    narr = sum(1 for sc in scs if sc.get('line') and not sc.get('lines') and (sc.get('image') or sc.get('clip')))
+    if narr < len(img) - 2: bad.append(f'Story: only {narr} narrated image scenes (narrate all but at most 2)')
+    cards = len(scs) - len(img)
+    if cards > 1: bad.append(f'Story: {cards} static cards (max 1 end card; put the lesson as chips on the payoff scene)')
+    clips = sum(1 for sc in scs if sc.get('clip') and os.path.exists(os.path.join(os.path.dirname(os.path.abspath(args[1])), sc['clip'])))
+    if clips < 3 and not K.get('clips_exhausted'): bad.append(f'Motion: {clips} clips (min 3: PixVerse first, then Veo; set "clips_exhausted": true only if both are out)')
 
 if re.search(r'\bfree\b(?! sugars?)(?!-)', ' '.join(corpus.values()).lower()) and not K.get('free_confirmed'):
     bad.append('"free" used but Yeoh has not confirmed the promo (set "free_confirmed": true only after he does)')
@@ -122,7 +141,7 @@ def lufs(path):
     m = re.findall(r'I:\s+(-?[\d.]+) LUFS', out); return float(m[-1]) if m else None
 if '--video' in opt:
     v = opt['--video']; base = os.path.splitext(v)[0]
-    for path, lo, hi in ((v, 15, 60), (base + '_GBP30.mp4', 5, 30.0)):
+    for path, lo, hi in ((v, 15, 60), (base + '_GBP30.mp4', 5, 30.0), (base + '_ZH.mp4', 15, 60)):
         if not os.path.exists(path):
             if path == v: bad.append(f'Video missing: {path}')
             continue
@@ -134,13 +153,12 @@ if '--video' in opt:
 
 # 5. No repeats vs Marketer Log
 def sim(a, b): return difflib.SequenceMatcher(None, str(a).lower(), str(b).lower()).ratio()
-hooks_now = [h for h in [(S.get('scenes') or [{}])[0].get('line', ''), S.get('hook_text', '')] + K['tiktok'].get('alt_hooks', []) if h]
+sc0 = (S.get('scenes') or [{}])[0]; hook_now = sc0.get('line') or ' '.join(l.get('text', '') for l in sc0.get('lines', []))
 checklist_now = ' / '.join(it['text'] for sc in S.get('scenes', []) for e in sc.get('elements', []) if e.get('type') == 'checklist' for it in e['items'])
 for row in LOG:
     if row.get('Episode') == K['episode']: continue
     ep = row.get('Episode', '?')
-    for h in hooks_now:
-        if row.get('Hook line') and sim(h, row['Hook line']) > 0.75: bad.append(f'Repeat: hook "{h}" too close to {ep}')
+    if hook_now and sim(hook_now, row.get('Hook line', '')) > 0.75: bad.append(f'Repeat: hook line too close to {ep}')
     if checklist_now and sim(checklist_now, row.get('Checklist items', '')) > 0.7: bad.append(f'Repeat: checklist items too close to {ep}')
     if row.get('GBP text') and sim(g, row['GBP text']) > 0.6: bad.append(f'Repeat: Google Business text too close to {ep}')
     if sim(K['blog']['title'], row.get('Blog title', '')) > 0.8: bad.append(f'Repeat: blog title too close to {ep}')
