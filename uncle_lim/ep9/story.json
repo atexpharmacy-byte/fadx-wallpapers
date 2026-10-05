@@ -1,0 +1,235 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "warm",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "What's On Pa's Fridge Card?",
+ "badge": "Uncle Lim \u00b7 Ep 9",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "Pa turned a card face down on our fridge. So, of course, I turned it back.",
+   "image": "01_hook.jpg",
+   "focus_y": 0.4,
+   "clip": "gv_01_hook.mp4",
+   "clip_speed": "native",
+   "clip_in": 0,
+   "clip_audio": true
+  },
+  {
+   "line": "Clinic follow-up, end of the month. Pa just waved his hand and turned the TV up.",
+   "image": "02_sofa.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "line": "So I hunted down his medicines. Kitchen cupboard, bedside drawer, even an old cookie tin.",
+   "image": "03_table.jpg",
+   "focus_y": 0.45,
+   "short": false
+  },
+  {
+   "line": "At Alpro KSL, a pharmacist was rushing past with a basket. Then she saw Pa's bag.",
+   "image": "04_rush.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "lines": [
+    {
+     "who": "Pharmacist Jocelyn",
+     "text": "Uncle, which ones do you take every morning?"
+    }
+   ],
+   "image": "05_counter.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "line": "And for once, I didn't answer for him. Pa patted the stool, and I sat.",
+   "image": "06_stool.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "End of the month, you drive. But I do the talking."
+    }
+   ],
+   "image": "07_questions.jpg",
+   "focus_y": 0.4,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      520,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "All meds, one bag",
+     "x": 305,
+     "y": 1200,
+     "size": 40,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      560,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Write 3 questions",
+     "x": 775,
+     "y": 1200,
+     "size": 40,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      325,
+      1275,
+      755,
+      1375
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Bring someone",
+     "x": 540,
+     "y": 1325,
+     "size": 40,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Seeing the doctor soon? Bring your medicine bag to Alpro KSL first.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Bring the bag. Ask us.",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall \u00b7 Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 10: Pa joins the group chat?",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
