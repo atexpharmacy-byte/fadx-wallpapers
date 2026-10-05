@@ -1,0 +1,235 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "warm",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "One Message. Twelve Bitter Gourds.",
+ "badge": "Uncle Lim · Ep 10",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "The kopitiam kakis added Pa to their group chat. By breakfast, forty messages.",
+   "image": "01_hook.jpg",
+   "focus_y": 0.4,
+   "clip": "gv_01_hook.mp4",
+   "clip_speed": "native",
+   "clip_in": 0,
+   "clip_audio": true
+  },
+  {
+   "line": "The loudest one came from Uncle Ong in Johor Jaya. A secret morning juice.",
+   "image": "02_sofa.jpg",
+   "focus_y": 0.4,
+   "short": false
+  },
+  {
+   "line": "By noon, Pa had bought twelve bitter gourds. Jun walked in on a roaring blender.",
+   "image": "03_blender.jpg",
+   "focus_y": 0.45
+  },
+  {
+   "line": "Next morning, Pa poured green juice for the kakis. Then Aaron sat down.",
+   "image": "04_kopitiam.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "lines": [
+    {
+     "who": "Pharmacist Aaron",
+     "text": "Uncle, who actually wrote this message? Got a name?"
+    }
+   ],
+   "image": "05_question.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "line": "Pa scrolled up and up. No name. Just forwarded many times. He went very quiet.",
+   "image": "06_quiet.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "New rule, kakis. Health message, show Aaron first."
+    }
+   ],
+   "image": "07_rule.jpg",
+   "focus_y": 0.4,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      520,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Who wrote it?",
+     "x": 305,
+     "y": 1200,
+     "size": 40,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      560,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Check before sharing",
+     "x": 775,
+     "y": 1200,
+     "size": 36,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      325,
+      1275,
+      755,
+      1375
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Doctor's plan first",
+     "x": 540,
+     "y": 1325,
+     "size": 40,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Got a forwarded health message? Show our pharmacist before you try it.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ask before you try",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 11: Road trip to Johor Jaya?",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
