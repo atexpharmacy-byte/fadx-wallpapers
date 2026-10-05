@@ -1,0 +1,237 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "hopeful",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "Jun's Cooking Tonight. Pa Is Nervous.",
+ "badge": "Uncle Lim · Ep 8",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "First big rain of October. My brother Jun said he was cooking dinner tonight.",
+   "image": "01_hook.jpg",
+   "focus_y": 0.4,
+   "clip": "clip_01_hook.mp4"
+  },
+  {
+   "line": "Then Pa opened the pantry. One tin of condensed milk, three sauces, one biscuit tin.",
+   "image": "02_pantry.jpg",
+   "focus_y": 0.45
+  },
+  {
+   "line": "So Jun ran to KSL in the rain, and froze in the middle of aisle five.",
+   "image": "03_aisle.jpg",
+   "focus_y": 0.35,
+   "short": false
+  },
+  {
+   "lines": [
+    {
+     "who": "Nutritionist CY",
+     "text": "You're Uncle Lim's son, right? What does he like when it rains?"
+    },
+    {
+     "who": "Jun",
+     "text": "Ginger porridge. With ikan bilis."
+    }
+   ],
+   "image": "04_cy.jpg",
+   "focus_y": 0.35
+  },
+  {
+   "line": "Jun put the noodles back. Ikan bilis, tempeh, eggs, halia, kunyit, oats, kangkung.",
+   "image": "05_basket.jpg",
+   "focus_y": 0.55,
+   "short": false
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "Aiyah. Bit salty, okay? Pass me another bowl."
+    }
+   ],
+   "image": "06_dinner.jpg",
+   "focus_y": 0.4,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      520,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ikan bilis + eggs",
+     "x": 305,
+     "y": 1200,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      560,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Halia & kunyit",
+     "x": 775,
+     "y": 1200,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      325,
+      1275,
+      755,
+      1375
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Tempeh & oats",
+     "x": 540,
+     "y": 1325,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "I didn't touch the stove once. Then Pa turned the card on the fridge face down.",
+   "image": "07_card.jpg",
+   "focus_y": 0.4
+  },
+  {
+   "line": "Not sure what goes in a rainy-day pantry? Come chat with us at Alpro KSL.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Plan your rainy pantry",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 9: What's on Pa's card?",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
