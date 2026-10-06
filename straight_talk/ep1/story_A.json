@@ -1,0 +1,239 @@
+{
+ "voice": "bf_alice",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "tense",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "Supplements plus clinic medicines? Ask before mixing them.",
+ "badge": "Straight Talk · Ep 1",
+ "gbp_cut": true,
+ "sting": false,
+ "zh": false,
+ "reward_items": [
+  "1 Snap every label",
+  "2 One phone album",
+  "3 Show with clinic meds"
+ ],
+ "scenes": [
+  {
+   "line": "Supplements plus clinic medicines? Ask before mixing them.",
+   "who": "Pharmacist Chloe",
+   "image": "01_hook.jpg",
+   "focus_y": 0.4,
+   "clip": "clip_01_hook.mp4"
+  },
+  {
+   "line": "Most regulars just guess at home. But there's an easier way, in three steps.",
+   "who": "Pharmacist Chloe",
+   "image": "02_open.jpg",
+   "focus_y": 0.45
+  },
+  {
+   "line": "Some pairs need a different time of day, and labels rarely say which.",
+   "who": "Pharmacist Chloe",
+   "image": "03_why.jpg",
+   "focus_y": 0.35,
+   "short": false
+  },
+  {
+   "line": "First, snap a photo of every vitamin and supplement label.",
+   "who": "Pharmacist Chloe",
+   "image": "04_snap.jpg",
+   "focus_y": 0.5,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      150,
+      1270,
+      930,
+      1380
+     ],
+     "r": 55,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "1 Snap every label",
+     "x": 540,
+     "y": 1325,
+     "size": 54,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Then keep them in one phone album. No names to remember.",
+   "who": "Pharmacist Chloe",
+   "image": "05_album.jpg",
+   "focus_y": 0.35,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      150,
+      1270,
+      930,
+      1380
+     ],
+     "r": 55,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "2 One phone album",
+     "x": 540,
+     "y": 1325,
+     "size": 54,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Last, bring that album with your clinic medicines, all in one go.",
+   "who": "Pharmacist Chloe",
+   "image": "06_market.jpg",
+   "focus_y": 0.45,
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      150,
+      1270,
+      930,
+      1380
+     ],
+     "r": 55,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "3 Show with clinic meds",
+     "x": 540,
+     "y": 1325,
+     "size": 54,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Or walk in at Alpro Johor Jaya from 8:30AM. I'll go through them with you.",
+   "who": "Pharmacist Chloe",
+   "image": "07_counter.jpg",
+   "focus_y": 0.45
+  },
+  {
+   "line": "Jalan Dedap 13, Taman Johor Jaya. See you after the market.",
+   "who": "Pharmacist Chloe",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ask our pharmacist",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Taman Johor Jaya · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Jalan Dedap 13 · from 8:30AM",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}

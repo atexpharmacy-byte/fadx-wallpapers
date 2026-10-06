@@ -1,0 +1,34 @@
+{
+ "brief_id": "JJ-20261006-1",
+ "outlet": "Johor Jaya",
+ "host": "Pharmacist Chloe",
+ "avatar": "Johor Jaya morning-market regular (50s+) taking clinic medicines and a few supplements",
+ "problem": "Not sure the vitamins at home sit fine with the clinic medicines, thinks asking means buying",
+ "reward": "Snap a photo of every vitamin and supplement label, keep them in one phone album, and show them with your clinic medicines at one visit",
+ "retain": "contrast",
+ "promised": 3,
+ "hooks": [
+  {
+   "v": "A",
+   "text": "Supplements plus clinic medicines? Ask before mixing them.",
+   "type": "yes-question"
+  },
+  {
+   "v": "B",
+   "text": "Johor Jaya pharmacist, in from 8:30AM daily.",
+   "type": "statement"
+  },
+  {
+   "v": "C",
+   "text": "What do I ask before any new supplement?",
+   "type": "open question"
+  }
+ ],
+ "cta": "Walk-in pharmacist chat (Ask our pharmacist)",
+ "cta_keywords": [
+  "ask our pharmacist"
+ ],
+ "offer_name": "Market-Morning Supplement Check-In",
+ "offer_ok": false,
+ "variants": 3
+}
