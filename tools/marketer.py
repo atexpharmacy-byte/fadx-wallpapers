@@ -3,7 +3,8 @@
 usage: python3 marketer.py story.json <Episode>_Video.mp4
 also writes <Episode>_Video_cover.jpg, <Episode>_Video_GBP30.mp4 (<=30s for Google Business)
 and <Episode>_Video_ZH.mp4 when every scene has line_zh (Mandarin voice + Chinese captions)
-scenes with "clip" (PixVerse/Kling mp4) play the motion clip, time-stretched to the scene
+scenes with "clip" (PixVerse/Kling/Veo/Gemini mp4) play the motion clip, time-stretched to the scene
+("clip_speed": "native" = real speed from "clip_in" s, slowed only if the clip is too short)
 needs: kokoro.onnx + voices.bin beside this file, ffmpeg, pip kokoro-onnx soundfile pillow numpy"""
 import json, sys, os, subprocess, numpy as np, soundfile as sf
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -263,9 +264,9 @@ def build_audio(sb, scenes, work, tag):
         mix += m * duck * 1.6
     # immersive ambience: Veo/PixVerse clip sound under the voices (ducked like the music)
     env = np.convolve(np.abs(v), np.ones(int(0.25 * sr)) / int(0.25 * sr), 'same'); duck = 1 - 0.7 * np.clip(env / 0.08, 0, 1)
-    def amb(path, n):
+    def amb(path, n, ss=0):
         if not path or not os.path.exists(path): return None
-        r = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', path, '-vn', '-ac', '1', '-ar', str(sr), '-f', 'f32le', '-'], capture_output=True).stdout
+        r = subprocess.run(['ffmpeg', '-loglevel', 'error', '-ss', str(ss), '-i', path, '-vn', '-ac', '1', '-ar', str(sr), '-f', 'f32le', '-'], capture_output=True).stdout
         x = np.frombuffer(r, np.float32)
         if len(x) < sr // 2: return None
         x = np.tile(x, n // len(x) + 1)[:n]; x = x / (np.max(np.abs(x)) + 1e-9)
@@ -275,7 +276,7 @@ def build_audio(sb, scenes, work, tag):
     spans = [(0 if i == 0 else st - gap / 2, total if i == len(timing) - 1 else timing[i + 1][0] - gap / 2) for i, (st, _) in enumerate(timing)]
     for sc, (a0, a1) in zip(scenes, spans):
         src = sc.get('ambience') or (sc.get('clip') if sc.get('clip_audio') else None)
-        i0, i1 = int(a0 * sr), min(len(mix), int(a1 * sr)); x = amb(src, i1 - i0)
+        i0, i1 = int(a0 * sr), min(len(mix), int(a1 * sr)); x = amb(src, i1 - i0, sc.get('clip_in', 0) if src == sc.get('clip') else 0)
         if x is not None: mix[i0:i1] += x * duck[i0:i1] * sc.get('ambience_gain', 0.3)
     if sb.get('sting', True) and len(timing) > 1 and not scenes[-1].get('image') and not scenes[-1].get('clip'):
         st = sting(sr); i = max(0, int((timing[-1][0] - gap / 2) * sr)); mix[i:i+len(st)] += st[:len(mix) - i]
@@ -350,15 +351,21 @@ def load_clip(path):
     pr = json.loads(subprocess.run(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=width,height',
                                     '-of','json',path],capture_output=True,text=True).stdout)['streams'][0]
     w, h = pr['width'], pr['height']
-    raw = subprocess.run(['ffmpeg','-loglevel','error','-i',path,'-f','rawvideo','-pix_fmt','rgb24','-'],capture_output=True).stdout
+    if w > 1080 or h > 1920:  # cap decode size (memory); 720p/1080p Gemini clips stay sharp
+        r = min(1080/w, 1920/h); w, h = int(w*r)//2*2, int(h*r)//2*2
+    raw = subprocess.run(['ffmpeg','-loglevel','error','-i',path,'-vf',f'fps={FPS},scale={w}:{h}','-f','rawvideo','-pix_fmt','rgb24','-'],capture_output=True).stdout
     n = len(raw)//(w*h*3)
     return [np.frombuffer(raw, np.uint8, w*h*3, k*w*h*3).reshape(h, w, 3) for k in range(n)]
 
 SHADE = None
-def clip_frame(frames, u, sc):
-    """pick frame by progress u (time-stretched to the scene span), cover-crop to 9:16, shade bottom for captions"""
+def clip_frame(frames, u, sc, dur=None):
+    """pick frame by progress u (time-stretched to the scene span; clip_speed native = real speed), cover-crop to 9:16, shade bottom for captions"""
     global SHADE
-    a = frames[min(len(frames)-1, int(u*(len(frames)-1)+0.5))]
+    if sc.get('clip_speed') == 'native' and dur:
+        k0 = int(sc.get('clip_in', 0) * FPS); avail = max(1, len(frames) - 1 - k0)
+        a = frames[min(len(frames)-1, k0 + int(u * min(avail, dur * FPS)))]
+    else:
+        a = frames[min(len(frames)-1, int(u*(len(frames)-1)+0.5))]
     im = Image.fromarray(a); r = max(W/im.width, H/im.height)
     im = im.resize((int(im.width*r+1), int(im.height*r+1)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2))
     ox = int((im.width-W)*sc.get('focus_x',0.5)); oy = int((im.height-H)*sc.get('focus_y',0.5)); im = im.crop((ox, oy, ox+W, oy+H))
@@ -388,7 +395,7 @@ def render(sb, scenes, out, tag, max_total=None):
     hook = sb.get('hook_text'); badge = sb.get('badge'); bimg = badge_overlay(badge) if badge else None
     clips = {i: load_clip(s['clip']) for i, s in enumerate(scenes) if s.get('clip') and os.path.exists(s['clip'])}
     def fr(i, u):
-        if i in clips: return clip_frame(clips[i], u, scenes[i])
+        if i in clips: return clip_frame(clips[i], u, scenes[i], spans[i][1] - spans[i][0])
         z = 1.0 + 0.13*u; cw = CW/z; ch = CH/z; dx, dy = MOVES[i % len(MOVES)]
         cx = (CW-cw)/2 + dx*(CW-cw)/2*(u-0.5); cy = (CH-ch)/2 + dy*(CH-ch)/2*(u-0.5)
         return imgs[i].resize((W, H), Image.BICUBIC, box=(cx, cy, cx+cw, cy+ch))
@@ -399,8 +406,7 @@ def render(sb, scenes, out, tag, max_total=None):
     for n in range(int(total * FPS)):
         t = n / FPS; i = next(j for j, (a, b) in enumerate(spans) if t < b or j == len(spans) - 1); a, b = spans[i]
         f_ = fr(i, min(max((t - a) / (b - a), 0), 1))
-        XF = sb.get('xfade', 0.35)
-        if i > 0 and t - a < XF: f_ = Image.blend(fr(i - 1, 1.0), f_, ((t - a) / XF) ** 0.5 * ((t - a) / XF) ** 0.5)
+        if i > 0 and t - a < 0.35: f_ = Image.blend(fr(i - 1, 1.0), f_, (t - a) / 0.35)
         if hook and i == 0:
             ho = hook_overlay(hook, sb, t); f_.paste(ho, ((W - ho.width)//2, 230), ho)
         elif bimg is not None and (scenes[i].get('image') or scenes[i].get('clip')) and scenes[i].get('badge', True):

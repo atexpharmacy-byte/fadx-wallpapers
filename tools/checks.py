@@ -31,6 +31,7 @@ corpus = {
   'tiktok': K['tiktok']['caption'] + ' ' + K['tiktok'].get('caption_zh', '') + ' ' + ' '.join(K['tiktok'].get('alt_hooks', [])),
   'facebook/instagram': K['meta']['caption'] + ' ' + K['meta']['first_comment'] + ' ' + K['meta'].get('caption_zh', ''),
   'google business': K['gbp']['text'], 'whatsapp': K['whatsapp'],
+  'xiaohongshu': ' '.join(str(K.get('xiaohongshu', {}).get(k, '')) for k in ('title', 'body', 'topics')),
   'blog meta': ' '.join([K['blog']['title'], K['blog']['search_description'], K['blog']['labels'], K['blog']['lsi']]),
 }
 for where, txt in corpus.items():
@@ -83,7 +84,12 @@ if scs:
     cards = len(scs) - len(img)
     if cards > 1: bad.append(f'Story: {cards} static cards (max 1 end card; put the lesson as chips on the payoff scene)')
     clips = sum(1 for sc in scs if sc.get('clip') and os.path.exists(os.path.join(os.path.dirname(os.path.abspath(args[1])), sc['clip'])))
-    if clips < 3 and not K.get('clips_exhausted'): bad.append(f'Motion: {clips} clips (min 3: PixVerse first, then Veo; set "clips_exhausted": true only if both are out)')
+    for sc in scs:
+        cp = os.path.join(os.path.dirname(os.path.abspath(args[1])), sc.get('clip') or '')
+        if sc.get('clip') and os.path.isfile(cp):
+            pr = subprocess.run(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=width,height','-of','csv=p=0',cp],capture_output=True,text=True).stdout.strip().split(',')
+            if len(pr) == 2 and pr[0].isdigit() and int(pr[0]) > int(pr[1]): bad.append(f'Motion: {sc["clip"]} is landscape {pr[0]}x{pr[1]} (regenerate in Portrait 9:16 or drop it)')
+    if clips < 3 and not K.get('clips_exhausted'): bad.append(f'Motion: {clips} clips (target 3: PixVerse first, then max 1 Google video; set "clips_exhausted": true when PixVerse is out and the Google slot is spent)')
 
 if re.search(r'\bfree\b(?! sugars?)(?!-)', ' '.join(corpus.values()).lower()) and not K.get('free_confirmed'):
     bad.append('"free" used but Yeoh has not confirmed the promo (set "free_confirmed": true only after he does)')
@@ -102,6 +108,14 @@ if len(g.split('\n')[0]) > 120: bad.append('GBP: first line over 120 chars (key 
 if re.search(r'\b(buy|order now|% off|discount|promo code|offer)\b', g, re.I): bad.append('GBP: sales/offer wording (no offers or calls to buy regulated pharmacy goods)')
 if 'medic' in g.lower() and re.search(r'\b(buy|order|deliver)\b', g, re.I): bad.append('GBP: call to purchase medicine')
 if K['gbp'].get('type', 'Update').lower().startswith('offer'): bad.append('GBP: post type must be Update, not Offer')
+if 'mvp' not in K: bad.append('kit.json "mvp" missing (shopper MVP this episode answers, or null when none fits)')
+elif K['mvp']:
+    kw = [w.lower() for w in K['mvp'].get('keywords', []) if w.strip()]
+    if not kw: bad.append('kit.json mvp.keywords empty (2–4 key words from the shopper prompt)')
+    else:
+        need = min(2, len(kw))
+        if sum(w in g[:200].lower() for w in kw) < need: bad.append(f'GBP: shopper MVP "{K["mvp"].get("prompt","")}" not answered up front (need {need} of {kw} in the first 200 chars)')
+        if sum(w in BLOG_TEXT.lower() for w in kw) < need: bad.append(f'Blog: shopper MVP keywords {kw} missing (MVP H2 + FAQ 4)')
 try:
     from PIL import Image
     im = Image.open(os.path.join(D, K['images'][K['gbp']['image']]))
@@ -117,6 +131,14 @@ b, y = K['blog'], K['youtube']
 if len(b['search_description']) > 155: bad.append(f"Blog search description {len(b['search_description'])} chars (max 155)")
 if 'johor bahru' not in b['search_description'].lower(): bad.append('Blog search description must contain "Johor Bahru"')
 if not re.search(r'johor bahru|\bjb\b', b['title'], re.I) or 'alpro pharmacy' not in b['title'].lower(): bad.append('Blog title needs JB/Johor Bahru + Alpro Pharmacy')
+pl = b.get('permalink', '').strip().lower()
+if not pl or pl.startswith('blog-post') or len(pl.split('-')) < 4: bad.append('Blog permalink must be a descriptive slug (topic + johor-bahru + epN), not empty/"blog-post"')
+bl = BLOG_TEXT.lower()
+if not re.search(r'lot g-?001|jalan dedap 13', bl): bad.append('Blog visit block: outlet address missing (shopper feedback: agents need where)')
+if not re.search(r'10\s?am|10:00|8:30\s?am|8\.30', bl): bad.append('Blog visit block: opening hours missing (shopper feedback: agents need when)')
+if 'wa.me/' not in BLOG: bad.append('Blog visit block: WhatsApp link missing')
+if re.search(r'07[- ]?288[- ]?8560|2888560|07[- ]?352[- ]?0338|3520338', BLOG + json.dumps(K, ensure_ascii=False)): bad.append('Landline found: no landline is ever used (KSL 013-209 6002 primary / 014-280 6002 secondary; Johor Jaya 019-230 0923)')
+if not re.search(r'id=["\']ringkasan', BLOG) or not re.search(r'[\u4e00-\u9fff]', BLOG_TEXT) or not re.search(r'\b(farmasi|buka|setiap hari)\b', bl): bad.append('Blog needs the BM + Chinese summary block (id="ringkasan") (shopper feedback: 0/9 BM/ZH prompts covered)')
 if len(y['title']) > 100: bad.append(f"YouTube title {len(y['title'])} chars (max 100)")
 if len(y['description']) > 5000: bad.append('YouTube description over 5,000 chars')
 if len(y['tags']) > 500: bad.append('YouTube tags over 500 chars')
@@ -162,6 +184,17 @@ for row in LOG:
     if checklist_now and sim(checklist_now, row.get('Checklist items', '')) > 0.7: bad.append(f'Repeat: checklist items too close to {ep}')
     if row.get('GBP text') and sim(g, row['GBP text']) > 0.6: bad.append(f'Repeat: Google Business text too close to {ep}')
     if sim(K['blog']['title'], row.get('Blog title', '')) > 0.8: bad.append(f'Repeat: blog title too close to {ep}')
+
+X = K.get('xiaohongshu')
+if not X: bad.append('Xiaohongshu note missing (kit.json "xiaohongshu")')
+else:
+    if len(X.get('title', '')) > 20: bad.append(f'Xiaohongshu title {len(X["title"])} characters (max 20)')
+    if not 300 <= len(X.get('body', '')) <= 1000: bad.append(f'Xiaohongshu body {len(X.get("body", ""))} characters (300–1000)')
+    if not re.search(r'[\u4e00-\u9fff]', X.get('title', '') + X.get('body', '')): bad.append('Xiaohongshu note is not in Chinese')
+    if re.search(r'https?://|www\.|wa\.me|whatsapp|微信|wechat|\b0\d{1,2}[- ]?\d{3,4}[- ]?\d{3,4}\b|\+?60\d{8,10}', ' '.join([X.get('title', ''), X.get('body', ''), X.get('topics', '')]), re.I):
+        bad.append('Xiaohongshu: no phone, WhatsApp, WeChat or links in the note (platform limits off-platform contact)')
+    if X.get('topics', '').count('#') < 5: bad.append('Xiaohongshu: add 5–8 #topics')
+    if not X.get('image') or X['image'] not in K.get('images', {}): bad.append('Xiaohongshu image missing from kit images')
 
 if bad:
     print('FAIL\n- ' + '\n- '.join(dict.fromkeys(bad))); sys.exit(1)

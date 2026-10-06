@@ -125,7 +125,8 @@ def part(id_, badge, title, where, body):
 b, y, t, m, g = K['blog'], K['youtube'], K['tiktok'], K['meta'], K['gbp']
 steps = [('blog', 'Blog post', 'Publish first to get the link'), ('youtube', 'YouTube Shorts', 'Add blog link in description'),
          ('tiktok', 'TikTok', 'Turn on AI-generated label'), ('meta', 'Facebook + Instagram Reels', 'One caption for both'),
-         ('gbp', 'Google Business post', 'Image + text + button'), ('whatsapp', 'WhatsApp broadcast', 'Last, with all links')]
+         ('gbp', 'Google Business post', 'Image + text + button'), ('xhs', 'Xiaohongshu 小红书', 'Image + note + location'),
+         ('whatsapp', 'WhatsApp broadcast', 'Last, with all links')]
 rail = ('<nav class="rail" aria-label="Posting checklist"><h2>Post in this order</h2><ol>' +
         ''.join('<li><input type="checkbox" id="c%d" aria-label="%s done"><a href="#%s">%s<small>%s</small></a></li>' % (i + 1, e(s[1]), s[0], e(s[1]), e(s[2])) for i, s in enumerate(steps)) +
         '</ol></nav>')
@@ -149,9 +150,12 @@ parts = [
    (field('中文 caption', 'm-zh', m['caption_zh']) if m.get('caption_zh') else '')),
  part('gbp', 'Step 5', 'Google Business Profile post', 'Google Search your outlet name → Add update → upload the image → paste the text → add a button. Never type phone numbers, links or hashtags in the text: Google removes those posts.',
    '<div class="two">' + fig(g['image'], '1:1 square, 1200×1200 (min 720×720), little text', 'Google Business post image') + '<div>' + field('Post text', 'g-text', g['text'], 'chars') + kv(dict([('Post type', g.get('type','Update')), ('Button', g['button'])] + ([('Video option', g['video'] + ' (≤30s, upload instead of or after the photo)')] if g.get('video') else []))) + '</div></div>'),
- part('whatsapp', 'Step 6', 'WhatsApp broadcast', 'Send the MP4 first, then this message. Paste the link where marked.', field('Message', 'w-msg', K['whatsapp'], 'words')),
+ (part('xhs', 'Step 6', 'Xiaohongshu 小红书 note', 'Xiaohongshu app → + → upload the cover image (or the Mandarin video) → paste the title and note → add the #topics → Add location: <b>%s</b>. Never add a phone number, WhatsApp, WeChat or link.' % e(K['xiaohongshu'].get('location', '')),
+   '<div class="two">' + fig(K['xiaohongshu']['image'], '3:4 cover, 1080×1440', 'Xiaohongshu cover image') + '<div>' + field('标题 Title (≤20)', 'x-title', K['xiaohongshu']['title'], 'chars') +
+   field('正文 Note', 'x-body', K['xiaohongshu']['body'], 'chars') + field('话题 Topics', 'x-topics', K['xiaohongshu']['topics']) + '</div></div>') if K.get('xiaohongshu') else ''),
+ part('whatsapp', 'Step 7', 'WhatsApp broadcast', 'Send the MP4 first, then this message. Paste the link where marked.', field('Message', 'w-msg', K['whatsapp'], 'words')),
  part('files', 'Assets', 'Image files', 'Right-click an image → Save image as.',
-   '<div class="two">' + ''.join(fig(n, 'YouTube thumbnail' if 'youtube' in n else 'blog image') for n in K['images'] if n != g['image']) + '</div>'),
+   '<div class="two">' + ''.join(fig(n, 'YouTube thumbnail' if 'youtube' in n else 'blog image') for n in K['images'] if n not in (g['image'], K.get('xiaohongshu', {}).get('image'))) + '</div>'),
 ]
 head = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
         '<title>%s Posting Kit</title>'
