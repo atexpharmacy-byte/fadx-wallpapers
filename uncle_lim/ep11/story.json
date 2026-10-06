@@ -1,0 +1,226 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "hopeful",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "Pa knocked twice. I was fast asleep.",
+ "badge": "Uncle Lim · Ep 11",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "Eight a.m. in Taman Johor Jaya. Pa knocked on my car window twice. I was fast asleep.",
+   "image": "01_hook.jpg"
+  },
+  {
+   "line": "He'd gone to ask Uncle Ong who wrote that juice message. I drove him there on four hours' sleep.",
+   "image": "02_night.jpg",
+   "short": false
+  },
+  {
+   "lines": [
+    {
+     "who": "Mei",
+     "text": "I'm fine, Pa. Just resting my eyes."
+    }
+   ],
+   "image": "03_window.jpg",
+   "focus_y": 0.75
+  },
+  {
+   "line": "Pa gave me my own look. Across the road, Alpro's shutters rolled up at half past eight.",
+   "image": "04_shutters.jpg",
+   "short": false
+  },
+  {
+   "line": "The pharmacist, Chloe, didn't ask about Pa. She asked when anyone last checked on me.",
+   "image": "05_counter.jpg"
+  },
+  {
+   "line": "So she checked. Slowly, every step explained. Pa just stood there, holding my handbag.",
+   "image": "06_check.jpg"
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "Aiyah. Today I drive. You do the resting."
+    }
+   ],
+   "image": "07_payoff.jpg",
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      230,
+      1080,
+      850,
+      1160
+     ],
+     "r": 40,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Your check counts too",
+     "x": 540,
+     "y": 1120,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      230,
+      1180,
+      850,
+      1260
+     ],
+     "r": 40,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Breakfast before errands",
+     "x": 540,
+     "y": 1220,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      230,
+      1280,
+      850,
+      1360
+     ],
+     "r": 40,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Sleep first, then drive",
+     "x": 540,
+     "y": 1320,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Alpro Pharmacy Taman Johor Jaya. Walk in from half past eight.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Open 8:30AM daily",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Taman Johor Jaya · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 12: The waiting room",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
