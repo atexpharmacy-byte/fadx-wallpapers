@@ -1,0 +1,232 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "hopeful",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "This time, Pa went in alone.",
+ "badge": "Uncle Lim · Ep 12",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "End of the month, at the clinic. Pa's number came up, and I was already halfway out of my chair.",
+   "image": "01_hook.jpg",
+   "clip": "gv_01_hook_cut.mp4",
+   "clip_speed": "native",
+   "clip_in": 0,
+   "clip_audio": true
+  },
+  {
+   "line": "I had fourteen questions on my phone. Pa had three, on the back of his card.",
+   "image": "02_lists.jpg",
+   "short": false
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "Aiyah. Three questions only. I can count."
+    }
+   ],
+   "image": "03_sit.jpg"
+  },
+  {
+   "line": "The door closed. For twenty minutes, I didn't text anyone. I just watched it.",
+   "image": "04_wait.jpg",
+   "focus_y": 0.4,
+   "short": false
+  },
+  {
+   "line": "He came out with three ticks on the card. I didn't ask a single thing. Pa just said, KSL.",
+   "image": "05_ticks.jpg"
+  },
+  {
+   "lines": [
+    {
+     "who": "Dietitian Renee",
+     "text": "So, uncle, what's on your table on a normal Tuesday?"
+    }
+   ],
+   "image": "06_renee.jpg"
+  },
+  {
+   "line": "Next morning, Pa saved me a stool. Then the group chat lit up. Uncle Ong was coming to KSL.",
+   "image": "07_stool.jpg",
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      200,
+      1080,
+      880,
+      1160
+     ],
+     "r": 40,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Your questions, your voice",
+     "x": 540,
+     "y": 1120,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      200,
+      1180,
+      880,
+      1260
+     ],
+     "r": 40,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Bring your usual week",
+     "x": 540,
+     "y": 1220,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      200,
+      1280,
+      880,
+      1360
+     ],
+     "r": 40,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Sit down with a dietitian",
+     "x": 540,
+     "y": 1320,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "line": "Alpro KSL City Mall. Come sit down with us.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Sit down with us",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Season 2: Uncle Ong arrives",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ],
+ "ambience": "gv_01_hook_cut.mp4",
+ "ambience_gain": 0.12
+}
