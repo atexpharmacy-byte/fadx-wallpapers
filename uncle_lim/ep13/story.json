@@ -1,0 +1,231 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "warm",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "Who brings a jar to a pharmacy?",
+ "badge": "Uncle Lim · Ep 13",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "Ten a.m. A stranger stormed into Alpro KSL, hugging a giant jar, asking for Aaron.",
+   "image": "01_hook.jpg",
+   "clip": "clip_01_hook.mp4"
+  },
+  {
+   "line": "That was Uncle Ong, the juice-message man from Pa's group chat. Pa had invited him.",
+   "image": "02_arrive.jpg",
+   "short": false
+  },
+  {
+   "line": "His newest forward said sea salt is natural, so no limit. Pa lectured him, exactly like I used to.",
+   "image": "03_lecture.jpg",
+   "short": false
+  },
+  {
+   "lines": [
+    {
+     "who": "Pharmacist Aaron",
+     "text": "Uncle, what did you eat yesterday? Start from breakfast."
+    }
+   ],
+   "image": "04_aaron.jpg",
+   "clip": "gv_04_aaron.mp4",
+   "clip_speed": "native",
+   "clip_in": 0.5,
+   "clip_audio": true
+  },
+  {
+   "line": "Salted egg, kiam chye, soy sauce on everything. Then he went quiet. Since Auntie passed, food tasted of nothing.",
+   "image": "05_quiet.jpg",
+   "focus_y": 0.3
+  },
+  {
+   "line": "Next morning, Ong ordered his own noodles, sauce on the side. Pa saved him a stool.",
+   "image": "06_kopitiam.jpg",
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      70,
+      1180,
+      420,
+      1270
+     ],
+     "r": 45,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Sauce on the side",
+     "x": 245,
+     "y": 1225,
+     "size": 38,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      440,
+      1180,
+      700,
+      1270
+     ],
+     "r": 45,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Taste first",
+     "x": 570,
+     "y": 1225,
+     "size": 38,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      720,
+      1180,
+      1010,
+      1270
+     ],
+     "r": 45,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Walk in, ask",
+     "x": 865,
+     "y": 1225,
+     "size": 38,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "who": "Mei",
+     "text": "Pa... Uncle Ong just added me to the group chat."
+    }
+   ],
+   "image": "07_button.jpg"
+  },
+  {
+   "line": "Got a question? Walk in and ask our pharmacist.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Walk in. Ask us.",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 14: Mei joins the kakis?",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
