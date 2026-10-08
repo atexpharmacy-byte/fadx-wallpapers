@@ -1,0 +1,232 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "gap": 0.45,
+ "music": true,
+ "music_mood": "warm",
+ "sfx": true,
+ "caption_words": 4,
+ "caption_y": 1540,
+ "caption_color": [
+  255,
+  255,
+  255
+ ],
+ "caption_highlight": [
+  255,
+  214,
+  60
+ ],
+ "hook_text": "Pa's kakis are checking MY lunch?",
+ "badge": "Uncle Lim · Ep 14",
+ "gbp_cut": true,
+ "sting": true,
+ "zh": false,
+ "scenes": [
+  {
+   "line": "Three p.m. at my desk. Pa's kakis asked what I ate for lunch. Uncle Ong posted noodles for one, again.",
+   "image": "01_hook.jpg",
+   "clip": "clip_01_hook.mp4"
+  },
+  {
+   "line": "At six I finally stood up. My back cracked like an old stool. My tiffin was still closed.",
+   "focus_y": 0.45,
+   "image": "02_six.jpg"
+  },
+  {
+   "line": "All year I watched every cup Pa drank. Nobody was watching my chair.",
+   "focus_y": 0.4,
+   "short": false,
+   "image": "03_quiet.jpg"
+  },
+  {
+   "line": "Next day at noon, Pa sent two words: food court, now. He had saved me a stool.",
+   "image": "04_foodcourt.jpg",
+   "focus_y": 0.5
+  },
+  {
+   "lines": [
+    {
+     "who": "Dietitian Renee",
+     "text": "Laptop stays with your Pa. Walk with me to the far stall?"
+    }
+   ],
+   "image": "05_renee.jpg",
+   "clip": "gv_05_renee.mp4",
+   "clip_speed": "native",
+   "clip_in": 2.0,
+   "clip_audio": true
+  },
+  {
+   "line": "Now my phone buzzes every hour. I stand, fill my water bottle, and take the long way back.",
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      70,
+      1110,
+      530,
+      1210
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Stand up hourly",
+     "x": 300,
+     "y": 1160,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      550,
+      1110,
+      1010,
+      1210
+     ],
+     "r": 50,
+     "fill": [
+      184,
+      134,
+      43
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Lunch off the desk",
+     "x": 780,
+     "y": 1160,
+     "size": 42,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "rect",
+     "box": [
+      270,
+      1240,
+      810,
+      1340
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Walk the long way",
+     "x": 540,
+     "y": 1290,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ],
+   "image": "06_payoff.jpg"
+  },
+  {
+   "lines": [
+    {
+     "who": "Uncle Lim",
+     "text": "Aiyah. Now who is watching who?"
+    }
+   ],
+   "image": "07_button.jpg"
+  },
+  {
+   "line": "Ask our dietitian at Alpro KSL.",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640,
+     "radius": 40
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ask our dietitian",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Ep 15: Dinner for one?",
+     "x": 540,
+     "y": 1320,
+     "size": 40,
+     "color": [
+      120,
+      130,
+      150
+     ]
+    }
+   ]
+  }
+ ]
+}
