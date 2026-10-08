@@ -1,12 +1,109 @@
 {
-  "Mei":                  {"mix": {"af_heart": 1.0}, "speed": 1.0, "pitch": 0, "note": "Narrator, warm daughter"},
-  "Uncle Lim":            {"mix": {"am_michael": 0.6, "bm_george": 0.4}, "speed": 0.9, "pitch": -2, "note": "65, gravelly, slow, cheerful"},
-  "Pharmacist Aaron":     {"mix": {"am_puck": 0.6, "am_liam": 0.4}, "speed": 1.08, "pitch": 1, "note": "Young, quick, straight to the point"},
-  "Pharmacist Jocelyn":   {"mix": {"af_nova": 0.6, "af_bella": 0.4}, "speed": 1.14, "pitch": 1, "note": "Always rushing, bright"},
-  "Pharmacist Catherine": {"mix": {"af_nicole": 0.5, "af_kore": 0.5}, "speed": 0.93, "pitch": 0, "note": "Soft, empathetic"},
-  "Nutritionist Lois":    {"mix": {"bf_lily": 0.6, "af_aoede": 0.4}, "speed": 1.0, "pitch": 0.5, "note": "Friendly teacher, good with kids"},
-  "Dietitian Renee":      {"mix": {"af_jessica": 0.6, "af_alloy": 0.4}, "speed": 1.04, "pitch": -0.5, "note": "Strong, decisive athlete"},
-  "Nutritionist CY":      {"mix": {"af_river": 0.6, "bf_isabella": 0.4}, "speed": 0.98, "pitch": 0, "note": "Calm, sincere, thoughtful"},
-  "Pharmacist Joyce":     {"mix": {"af_sky": 0.6, "af_bella": 0.4}, "speed": 1.05, "pitch": 1.5, "note": "Joyous, light"},
-  "Jun":                  {"mix": {"am_eric": 0.6, "bm_lewis": 0.4}, "speed": 0.98, "pitch": -0.5, "note": "Mei's younger brother, 26, tired night-shift worker, easy-going"}
+ "Mei": {
+  "mix": {
+   "af_heart": 1.0
+  },
+  "speed": 1.0,
+  "pitch": 0,
+  "note": "Narrator, warm daughter"
+ },
+ "Uncle Lim": {
+  "mix": {
+   "am_michael": 0.6,
+   "bm_george": 0.4
+  },
+  "speed": 0.9,
+  "pitch": -2,
+  "note": "65, gravelly, slow, cheerful"
+ },
+ "Pharmacist Aaron": {
+  "mix": {
+   "am_puck": 0.6,
+   "am_liam": 0.4
+  },
+  "speed": 1.08,
+  "pitch": 1,
+  "note": "Young, quick, straight to the point"
+ },
+ "Pharmacist Jocelyn": {
+  "mix": {
+   "af_nova": 0.6,
+   "af_bella": 0.4
+  },
+  "speed": 1.14,
+  "pitch": 1,
+  "note": "Always rushing, bright"
+ },
+ "Pharmacist Catherine": {
+  "mix": {
+   "af_nicole": 0.5,
+   "af_kore": 0.5
+  },
+  "speed": 0.93,
+  "pitch": 0,
+  "note": "Soft, empathetic"
+ },
+ "Nutritionist Lois": {
+  "mix": {
+   "bf_lily": 0.6,
+   "af_aoede": 0.4
+  },
+  "speed": 1.0,
+  "pitch": 0.5,
+  "note": "Friendly teacher, good with kids"
+ },
+ "Dietitian Renee": {
+  "mix": {
+   "af_jessica": 0.6,
+   "af_alloy": 0.4
+  },
+  "speed": 1.04,
+  "pitch": -0.5,
+  "note": "Strong, decisive athlete"
+ },
+ "Nutritionist CY": {
+  "mix": {
+   "af_river": 0.6,
+   "bf_isabella": 0.4
+  },
+  "speed": 0.98,
+  "pitch": 0,
+  "note": "Calm, sincere, thoughtful"
+ },
+ "Pharmacist Joyce": {
+  "mix": {
+   "af_sky": 0.6,
+   "af_bella": 0.4
+  },
+  "speed": 1.05,
+  "pitch": 1.5,
+  "note": "Joyous, light"
+ },
+ "Jun": {
+  "mix": {
+   "am_eric": 0.6,
+   "bm_lewis": 0.4
+  },
+  "speed": 0.98,
+  "pitch": -0.5,
+  "note": "Mei's younger brother, 26, tired night-shift worker, easy-going"
+ },
+ "Pharmacist Chloe": {
+  "mix": {
+   "bf_alice": 0.6,
+   "af_sarah": 0.4
+  },
+  "speed": 1.0,
+  "pitch": 0.5,
+  "note": "Alpro Taman Johor Jaya pharmacist, bright and patient"
+ },
+ "Uncle Ong": {
+  "mix": {
+   "am_fenrir": 0.6,
+   "bm_daniel": 0.4
+  },
+  "speed": 0.95,
+  "pitch": -1.5,
+  "note": "68, loud, proud kopitiam kaki from Taman Johor Jaya"
+ }
 }
