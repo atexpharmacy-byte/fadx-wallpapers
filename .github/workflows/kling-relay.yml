@@ -1,0 +1,48 @@
+name: kling-relay
+# /cinema backup route: fetch Kling outputs on GitHub's servers when the Claude workspace can't reach Kling.
+# Trigger: push relay/request.json to branch relay-in.
+# request.json = {"id":"<run id>","files":[{"name":"g1.mp4","url":"https://...klingai.com/..."}]}
+# Result: branch relay-out (force-pushed, single commit) holds out/<id>/<name> + out/<id>/manifest.json
+on:
+  push:
+    branches: [relay-in]
+    paths: [relay/request.json]
+permissions:
+  contents: write
+concurrency:
+  group: kling-relay
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: relay-in }
+      - name: Download files
+        run: |
+          set -euo pipefail
+          ID=$(jq -r .id relay/request.json)
+          case "$ID" in (*[!A-Za-z0-9_.-]*|"") echo "bad id"; exit 1;; esac
+          mkdir -p "/tmp/out/out/$ID"
+          echo '[]' > /tmp/m.json
+          n=$(jq '.files|length' relay/request.json)
+          for i in $(seq 0 $((n-1))); do
+            NAME=$(jq -r ".files[$i].name" relay/request.json)
+            URL=$(jq -r ".files[$i].url" relay/request.json)
+            case "$NAME" in (*[!A-Za-z0-9_.-]*|"") echo "bad name $NAME"; exit 1;; esac
+            case "$URL" in (https://*.klingai.com/*|https://kling.ai/*|https://*.kling.ai/*) ;; (*) echo "url host not allowed: $NAME"; exit 1;; esac
+            curl -sS -L --fail --retry 3 --max-time 300 -o "/tmp/out/out/$ID/$NAME" "$URL"
+            SIZE=$(stat -c %s "/tmp/out/out/$ID/$NAME"); SHA=$(sha256sum "/tmp/out/out/$ID/$NAME" | cut -d' ' -f1)
+            jq --arg n "$NAME" --argjson s "$SIZE" --arg h "$SHA" '. + [{name:$n,size:$s,sha256:$h}]' /tmp/m.json > /tmp/m2.json && mv /tmp/m2.json /tmp/m.json
+          done
+          jq --arg id "$ID" --arg run "$GITHUB_RUN_ID" '{id:$id,run:$run,files:.}' /tmp/m.json > "/tmp/out/out/$ID/manifest.json"
+          cat "/tmp/out/out/$ID/manifest.json"
+      - name: Publish to relay-out
+        run: |
+          set -euo pipefail
+          cd /tmp/out
+          git init -q -b relay-out
+          git config user.name "kling-relay"; git config user.email "kling-relay@users.noreply.github.com"
+          git add -A && git commit -qm "relay $(ls out)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" relay-out
