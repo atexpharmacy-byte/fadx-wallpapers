@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>30 Days P1 Kit</title>
+<style>
+:root{--b:#1B4583;--d:#12305E;--g:#B8862B;--bg:#f4f7fb;--card:#fff;--t:#14213d;--m:#5a6782}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--t)}
+header{background:var(--b);color:#fff;padding:20px 16px}header h1{margin:0;font-size:20px}header p{margin:6px 0 0;opacity:.85;font-size:14px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card{background:var(--card);border-radius:14px;padding:16px;margin:0 0 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{font-size:16px;margin:0 0 10px;color:var(--d)}
+.v{border-left:4px solid var(--g);padding-left:12px;margin:12px 0}
+.lbl{font-size:12px;color:var(--m);text-transform:uppercase;letter-spacing:.04em}
+pre{white-space:pre-wrap;word-break:break-word;background:#eef2f8;border-radius:10px;padding:10px;margin:6px 0;font:14px/1.45 system-ui,sans-serif}
+button{background:var(--b);color:#fff;border:0;border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer}
+button.ok{background:#2e7d32}
+ul{margin:6px 0 0;padding-left:18px}li{margin:4px 0}
+</style></head><body>
+<header><h1>30 Days at KSL · Part 1 · Day 30</h1><p>TikTok only · post 8:30–9:30PM MYT · AI-generated label ON</p></header>
+<main>
+<div class="card"><h2>Who posts what</h2>
+<div class="v"><div class="lbl">Variant A · dialogue hook · Alpro KSL main TikTok</div>
+<div>Video: Thirty_Days_P1_A_Video.mp4 · Cover: Thirty_Days_P1_A_Video_cover.jpg</div>
+<pre id="ca">Part 1 · Day 30 | Why does it say thirty days?
+Ma hid the letter. The girl across the aisle didn't.
+Should Ethan ask Nadia what she knows? A: yes / B: stay away
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama</pre><button data-c="ca">Copy caption</button></div>
+<div class="v"><div class="lbl">Variant B · flash-forward hook · staff KOL account #1 (most views, last 14 days)</div>
+<div>Video: Thirty_Days_P1_B_Video.mp4 · Cover: Thirty_Days_P1_B_Video_cover.jpg</div>
+<pre id="cb">Part 1 · Day 30 | Who is taking Ma's stall?
+At 9:59PM, one sentence changed everything.
+Should Ethan ask Nadia what she knows? A: yes / B: stay away
+#30DaysKSL #JBdrama #KSLCityMall #minidrama</pre><button data-c="cb">Copy caption</button></div>
+<div class="v"><div class="lbl">Variant C · secret-object hook · staff KOL account #2</div>
+<div>Video: Thirty_Days_P1_C_Video.mp4 · Cover: Thirty_Days_P1_C_Video_cover.jpg</div>
+<pre id="cc">Part 1 · Day 30 | Why did she hide this letter?
+Thirty years at the same stall. Thirty days left.
+Should Ethan ask Nadia what she knows? A: yes / B: stay away
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama</pre><button data-c="cc">Copy caption</button></div>
+</div>
+<div class="card"><h2>Pinned comment (all 3)</h2>
+<pre id="pc">Part 2 drops in 2 days, 9PM. Playlist: 30 Days at KSL
+Should Ethan ask Nadia what she knows? A: yes / B: stay away</pre><button data-c="pc">Copy</button></div>
+<div class="card"><h2>Settings checklist</h2><ul>
+<li>Post window: <b>8:30–9:30PM MYT</b></li>
+<li>Playlist: <b>30 Days at KSL</b> (create on first post, Part 1 first)</li>
+<li>Location tag: <b>KSL City Mall</b></li>
+<li>AI-generated content label: <b>ON</b></li>
+<li>3 different accounts, same evening. Never post two variants on one account.</li>
+</ul></div>
+<div class="card"><h2>After posting</h2>
+<p>Submit the TikTok link in the KOL app with Episode = <b>Thirty_Days_P1_A</b>, <b>Thirty_Days_P1_B</b> or <b>Thirty_Days_P1_C</b> (match the video you posted).</p></div>
+</main>
+<script>
+document.querySelectorAll('button[data-c]').forEach(b=>b.addEventListener('click',async()=>{const t=document.getElementById(b.dataset.c).innerText;try{await navigator.clipboard.writeText(t);}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}const o=b.textContent;b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent=o;b.classList.remove('ok')},1400);}));
+</script></body></html>

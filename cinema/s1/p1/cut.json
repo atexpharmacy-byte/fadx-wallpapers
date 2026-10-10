@@ -1,0 +1,205 @@
+{
+ "episode": "Thirty_Days_P1",
+ "badge": "DAY 30 · PART 1",
+ "hooks": {
+  "A": "Ma, why does this say thirty days?",
+  "B": "Who is taking Ma's stall?",
+  "C": "Why did she hide this letter?"
+ },
+ "shots": [
+  {
+   "clip": "g1.mp4",
+   "in": 0.0,
+   "out": 3.5,
+   "speech_in": 1.22,
+   "speech_out": 3.21,
+   "lines": [
+    {
+     "who": "Ethan",
+     "text": "Ma, why does this say thirty days?"
+    }
+   ]
+  },
+  {
+   "clip": "g1.mp4",
+   "in": 3.5,
+   "out": 6.875,
+   "speech_in": 4.27,
+   "speech_out": 6.86,
+   "lines": [
+    {
+     "who": "Ma",
+     "text": "Give it back. Eat first."
+    }
+   ]
+  },
+  {
+   "clip": "g1.mp4",
+   "in": 6.875,
+   "out": 10.625,
+   "speech_in": 8.22,
+   "speech_out": 10.25,
+   "lines": [
+    {
+     "who": "Ethan",
+     "text": "Thirty days to what, Ma?"
+    }
+   ]
+  },
+  {
+   "clip": "g1.mp4",
+   "in": 10.625,
+   "out": 14.0,
+   "speech_in": 11.06,
+   "speech_out": 12.6,
+   "lines": [
+    {
+     "who": "Ma",
+     "text": "Close the shutter. It's late."
+    }
+   ]
+  },
+  {
+   "image": "corr1.png",
+   "in": 0,
+   "out": 2.5,
+   "move": "in",
+   "ambience": "g1.mp4",
+   "lines": []
+  },
+  {
+   "image": "s_ma.png",
+   "in": 0,
+   "out": 3.0,
+   "move": "in",
+   "ambience": "g1.mp4",
+   "lines": []
+  },
+  {
+   "clip": "g2b.mp4",
+   "in": 0.6,
+   "out": 2.83,
+   "lines": []
+  },
+  {
+   "clip": "g2b.mp4",
+   "in": 2.83,
+   "out": 5.625,
+   "speech_in": 4.81,
+   "speech_out": 5.57,
+   "lines": [
+    {
+     "who": "Nadia",
+     "text": "Your mum's lot?"
+    }
+   ]
+  },
+  {
+   "clip": "g2b.mp4",
+   "in": 5.625,
+   "out": 8.208,
+   "speech_in": 6.9,
+   "speech_out": 7.89,
+   "lines": [
+    {
+     "who": "Ethan",
+     "text": "What about it?"
+    }
+   ]
+  },
+  {
+   "clip": "g2b.mp4",
+   "in": 8.208,
+   "out": 10.625,
+   "speech_in": 8.85,
+   "speech_out": 10.13,
+   "lines": [
+    {
+     "who": "Nadia",
+     "text": "It's mine on Day Zero."
+    }
+   ]
+  },
+  {
+   "clip": "g2b.mp4",
+   "in": 10.625,
+   "out": 13.6,
+   "lines": []
+  }
+ ],
+ "endcard": {
+  "cta": "Alpro KSL · open till 10PM",
+  "outlet_line": "KSL City Mall · Johor Bahru",
+  "teaser": "DAY 28: Why did the letter come early?",
+  "follow": "Follow so you don't miss Part 2",
+  "seconds": 2.0
+ },
+ "variants": {
+  "A": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "B": [
+   [
+    9,
+    8.208,
+    10.625,
+    "9:59 PM"
+   ],
+   [
+    0,
+    0.0,
+    3.5,
+    "TWO HOURS EARLIER"
+   ],
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "C": [
+   [
+    3,
+    10.625,
+    12.4
+   ],
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "tiktok": {
+  "caption": "Part 1 · Day 30 | Why does it say thirty days? Ma hid the letter. The girl across the aisle didn't.",
+  "hashtags": [
+   "#30DaysKSL",
+   "#JBdrama",
+   "#KSLCityMall",
+   "#shortdrama"
+  ],
+  "pinned_comment": "Part 2 drops in 2 days, 9PM. Playlist: 30 Days at KSL",
+  "comment_question": "Should Ethan ask Nadia what she knows? A: yes / B: stay away"
+ }
+}
