@@ -1,0 +1,30 @@
+{
+ "batches": [
+  {
+   "id": "thirty_days_p1_v1",
+   "files": [
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_A_Video.mp4"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_A_Video_cover.jpg"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_B_Video.mp4"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_B_Video_cover.jpg"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_C_Video.mp4"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_C_Video_cover.jpg"
+    },
+    {
+     "path": "deliver/thirty_days_p1/Thirty_Days_P1_TikTok.html"
+    }
+   ]
+  }
+ ]
+}
