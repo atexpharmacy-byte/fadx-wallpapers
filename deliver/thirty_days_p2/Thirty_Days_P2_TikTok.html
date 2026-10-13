@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>30 Days · Part 2 Kit</title>
+<style>
+:root{--blue:#1B4583;--deep:#12305E;--gold:#B8862B;--bg:#F3F6FB;--card:#fff;--ink:#14213D;--mute:#5B6478}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--blue);color:#fff;padding:18px 16px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;opacity:.85;font-size:13px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card{background:var(--card);border-radius:14px;padding:14px 16px;margin:0 0 14px;box-shadow:0 1px 3px rgba(20,33,61,.08)}
+.card h2{margin:0 0 8px;font-size:15px;color:var(--deep)}
+.tag{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600;margin-right:6px}
+.row{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.txt{flex:1;background:#F7F9FD;border:1px solid #DCE3EF;border-radius:10px;padding:8px 10px;white-space:pre-wrap;word-break:break-word}
+button{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer;flex:none}
+button.ok{background:#2E7D4F}
+.meta{color:var(--mute);font-size:13px;margin:2px 0}
+ul{margin:6px 0 0 18px;padding:0}
+</style></head><body>
+<header><h1>30 Days at KSL · Part 2 · Day 28</h1><p>TikTok posting kit · all three versions go out the SAME night, on three different accounts</p></header>
+<main>
+<div class="card"><h2>When &amp; where</h2>
+<p class="meta"><b>Post:</b> Wed 14 Oct, 8:30–9:30PM MYT (all three)</p>
+<p class="meta"><b>Playlist:</b> 30 Days at KSL (add after Part 1)</p>
+<p class="meta"><b>Location tag:</b> KSL City Mall · <b>AI-generated content label:</b> ON</p>
+<p class="meta">Same video, different first 2 seconds. Don't post B and C on the main account or on later days — that breaks the test.</p></div>
+
+<div class="card"><h2><span class="tag">A</span>@alpro_account1 (main) · dialogue hook</h2>
+<p class="meta">File: Thirty_Days_P2_A_Video.mp4 · cover: Thirty_Days_P2_A_Video_cover.jpg</p>
+<div class="row"><div class="txt" id="capA">Part 2 · Day 28 | Who told her about Ma's lot?
+Haze outside, a secret inside, and the guard saw everything.
+Should Ethan trust Nadia? A: yes / B: not yet
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama #jerebu</div><button onclick="cp('capA',this)">Copy</button></div></div>
+
+<div class="card"><h2><span class="tag">B</span>@alpro_account5 · flash-forward hook</h2>
+<p class="meta">File: Thirty_Days_P2_B_Video.mp4 · cover: Thirty_Days_P2_B_Video_cover.jpg</p>
+<div class="row"><div class="txt" id="capB">Part 2 · Day 28 | What does the guard know?
+9:59PM. One minute before the shutters. One letter that came too early.
+Should Ethan trust Nadia? A: yes / B: not yet
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama #jerebu</div><button onclick="cp('capB',this)">Copy</button></div></div>
+
+<div class="card"><h2><span class="tag">C</span>@alpro_account2 · object/secret hook</h2>
+<p class="meta">File: Thirty_Days_P2_C_Video.mp4 · cover: Thirty_Days_P2_C_Video_cover.jpg</p>
+<div class="row"><div class="txt" id="capC">Part 2 · Day 28 | Why is she counting coins too?
+The rival who wants Ma's lot is counting the same small coins.
+Should Ethan trust Nadia? A: yes / B: not yet
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama #jerebu</div><button onclick="cp('capC',this)">Copy</button></div></div>
+
+<div class="card"><h2>Pinned comment (all three)</h2>
+<div class="row"><div class="txt" id="pin">Part 3 drops Fri 9PM. Playlist: 30 Days at KSL
+Should Ethan trust Nadia? A: yes / B: not yet</div><button onclick="cp('pin',this)">Copy</button></div></div>
+
+<div class="card"><h2>Hashtags only</h2>
+<div class="row"><div class="txt" id="tags">#30DaysKSL #JBdrama #KSLCityMall #shortdrama #jerebu</div><button onclick="cp('tags',this)">Copy</button></div></div>
+
+<div class="card"><h2>After posting</h2>
+<ul><li>Submit each TikTok link in the KOL app with Episode = <b>Thirty_Days_P2_A</b> / <b>_B</b> / <b>_C</b>.</li>
+<li>Paste the top comments (and the A/B vote count) in the chat after 24h.</li></ul></div>
+</main>
+<script>
+function cp(id,b){const t=document.getElementById(id).innerText;
+const done=()=>{b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1500)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,()=>fb(t,done))}else fb(t,done)}
+function fb(t,done){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();done()}
+</script>
+</body></html>
