@@ -1,29 +1,25 @@
 {
- "id": "p4frames1",
+ "id": "p4frames2",
  "files": [
   {
-   "name": "f1.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2NkMzIwNzM2XzE3MmI5YmE0OGE5ZWQyNDgyOTAwMjJkYWU4NjNmODgxcDZsamoucG5n.origin?x-kcdn-pid=112372"
+   "name": "f1b.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2I4ZWRiNGY0XzA5ZTk0ODAxNzUzYTVhYjdmN2VjMWVhYTVjYTJiMWI4MHhjdmgucG5n.origin?x-kcdn-pid=112372"
   },
   {
-   "name": "f2.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzg2NGE4NTU2XzIzMjZlNDYzZWMyNDI3ZTBkOWU4ZDdmNzdkMDE4NTUzYnNsYmkucG5n.origin?x-kcdn-pid=112372"
+   "name": "s_mamak2.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzk1Mjk2MWMwXzJkNmQzNDFkOGRkOTgyZmI5ODE5NGYzOGM3MjM2OTgyMW9kMjAucG5n.origin?x-kcdn-pid=112372"
   },
   {
-   "name": "f3.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzIzMDkwMzBkXzMxZmE5MmYxNmZmN2UwMjBlNDNmOTBjNjkxNjk2MzcxdXZpZ3YucG5n.origin?x-kcdn-pid=112372"
+   "name": "vo1.wav",
+   "url": "https://resource2.heygen.ai/text_to_speech/771c899e3fc343329f1b5475862cbb2d/036ceb4857a34e8ca92d4b08904bf034/id=09d12661-bd9e-47e3-bd12-e9c0e4c2f224.wav"
   },
   {
-   "name": "s_road.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2ZkMGFmYWQ2XzhhYjIzMjUxNDk5NDUxMmFlMzkzNTA5ZDRiODcxODkydmlnYXoucG5n.origin?x-kcdn-pid=112372"
+   "name": "vo2.wav",
+   "url": "https://resource2.heygen.ai/text_to_speech/771c899e3fc343329f1b5475862cbb2d/036ceb4857a34e8ca92d4b08904bf034/id=ef12659d-cd2e-4826-a3d3-b3ec7b2c21b2.wav"
   },
   {
-   "name": "s_mamak.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzJlODZhZDgxX2Q4ZTgzY2JiMDk4YjllY2M5YjQ2NzNiMTUzMzZkNDZjeGt4Y2gucG5n.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "corridor.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzUxOTgxZTkzX2Y4OTkxNWFjMmU3ZjMzNmQ5YTVmYjg2ODA2YzFjMTk5dTNmdnYucG5n.origin?x-kcdn-pid=112372"
+   "name": "vo3.wav",
+   "url": "https://resource2.heygen.ai/text_to_speech/771c899e3fc343329f1b5475862cbb2d/036ceb4857a34e8ca92d4b08904bf034/id=13e0403b-fc45-4d58-913e-dddfda7409b9.wav"
   }
  ]
 }
