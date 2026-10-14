@@ -1,0 +1,24 @@
+{"episode":"Thirty_Days_P4","badge":"DAY 24 · PART 4",
+ "hooks":{"A":"Why is he driving at 2AM?","B":"Where does Ethan's car go at night?","C":"Who is his 2AM passenger?"},
+ "shots":[
+  {"clip":"g1.mp4","in":0.8,"out":3.0,"label":"2:00 AM","speech_in":1.68,"speech_out":2.1,"prompt":"G1 multi-shot: mall car park 2AM, Nadia at the open door of Ethan's e-hailing car, coin bag: 'You?' / Ethan 'Seatbelt, please.' / she gets in the back / 'Remote work, huh?' / Ethan grips the wheel","lines":[{"who":"Nadia","text":"You?"}]},
+  {"clip":"g1.mp4","in":3.0,"out":6.0,"speech_in":3.43,"speech_out":4.86,"lines":[{"who":"Ethan","text":"Seatbelt, please."}]},
+  {"clip":"g1.mp4","in":6.0,"out":11.3,"speech_in":8.87,"speech_out":10.32,"lines":[{"who":"Nadia","text":"Remote work, huh?"}]},
+  {"clip":"g1.mp4","in":11.3,"out":13.0,"lines":[]},
+  {"image":"s_road.png","in":0,"out":5.0,"move":"in","ambience":"g2.mp4","vo":{"file":"vo2.wav","at":0.3,"gain":0.7},"speech_in":0.6,"speech_out":4.5,"lines":[{"who":"Narrator","text":"At two in the morning,"},{"who":"Narrator","text":"everyone in this city is hiding something."}]},
+  {"clip":"g2.mp4","in":0.4,"out":3.2,"prompt":"G2 multi-shot: red light, Ethan nods off; Nadia 'When did you last sleep?' / 'Thursday. Maybe.' / 'Pull over. Ten minutes. I'm not dying in your car.' / car pulls over","lines":[]},
+  {"clip":"g2.mp4","in":3.2,"out":4.6,"speech_in":3.31,"speech_out":4.16,"lines":[{"who":"Nadia","text":"When did you last sleep?"}]},
+  {"clip":"g2.mp4","in":4.6,"out":6.7,"speech_in":4.77,"speech_out":6.46,"lines":[{"who":"Ethan","text":"Thursday. Maybe."}]},
+  {"clip":"g2.mp4","in":6.7,"out":10.0,"speech_in":6.84,"speech_out":9.27,"lines":[{"who":"Nadia","text":"Pull over. Ten minutes. I'm not dying in your car."}]},
+  {"image":"s_mamak2.png","in":0,"out":6.6,"move":"in","ambience":"g2.mp4","vo":{"file":"vo1.wav","at":0.3,"gain":0.7},"speech_in":0.55,"speech_out":6.0,"lines":[{"who":"Narrator","text":"One letter. One call he won't talk about."},{"who":"Narrator","text":"And a son who doesn't sleep."}]},
+  {"image":"corridor.png","in":0,"out":4.4,"move":"in","label":"9:50 PM","vo":{"file":"vo3.wav","at":0.3,"gain":0.7},"speech_in":0.6,"speech_out":3.7,"lines":[{"who":"Narrator","text":"Rest is the first thing pride gives away."}]},
+  {"clip":"g3.mp4","in":0.0,"out":2.3,"label":"9:59 PM","prompt":"G3 multi-shot: 9:59PM kuih stall, Ma 'Uncle Ravi says your car leaves at one.' Ethan frozen with keys","lines":[]},
+  {"clip":"g3.mp4","in":2.3,"out":6.0,"crop_top":0.08,"speech_in":2.4,"speech_out":5.45,"lines":[{"who":"Ma","text":"Uncle Ravi says your car leaves at one."}]},
+  {"clip":"g3.mp4","in":6.0,"out":8.0,"lines":[]}
+ ],
+ "endcard":{"cta":"Long nights? Ask a pharmacist before 10PM","outlet_line":"Alpro Pharmacy · KSL City Mall","teaser":"DAY 22: Will Nadia tell Ma?","follow":"Follow so you don't miss Part 5","seconds":2.0},
+ "variants":{
+  "A":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],
+  "B":[[12,2.3,6.0,"9:59 PM"],[0,0.8,3.0,"THAT MORNING · 2:00 AM"],1,2,3,4,5,6,7,8,9,10,11,12,13],
+  "C":[[4,0,5.0,"2:00 AM"],0,1,2,3,5,6,7,8,9,10,11,12,13]},
+ "tiktok":{"caption":"Part 4 · Day 24 | 2AM. His passenger knows him. And now she knows his secret.","hashtags":["#30DaysKSL","#JBdrama","#KSLCityMall","#shortdrama"],"pinned_comment":"Part 5 drops Fri 23 Oct 9PM. Playlist: 30 Days at KSL","comment_question":"Should Nadia keep Ethan's secret? A: keep it / B: tell Ma"}}
