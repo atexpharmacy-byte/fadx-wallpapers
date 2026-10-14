@@ -1,29 +1,13 @@
 {
- "id": "p3_frames",
+ "id": "p3_frames2",
  "files": [
   {
-   "name": "sf1.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2MxZTZhMWRkX2YzYjc3YWNjMTgwYzI0YjAyNzkwZDkyMGQ0YmNmYzUwaWJzNXkucG5n.origin?x-kcdn-pid=112372"
+   "name": "sf1b.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzVhYWU2Mzk1XzU2NTQyZTNhZTVlYTkyOWUxOGU1M2UwNjlmN2EzZTUxYjQ5NHIucG5n.origin?x-kcdn-pid=112372"
   },
   {
-   "name": "sf2.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzYzY2I4MTdmXzcwNTFiMjcxN2ZmMWVkZWU1MjNhMTZhMDkxMThkMzMwMXJsb3kucG5n.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "sf3.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzAyMDU3NDU3X2Y2N2IxYmI0YjAzNjZiMGU1ZjY3OTg4ZjgxNDMxMWJhdjIycnkucG5n.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "ravi.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzczZDczODgxX2M1N2I2MzhmODMyYjRkY2M1NjA1MjgyZDM5NDY5OGI3YWJkOHkucG5n.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "tiffin.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzczNWU3YTdlXzAwODNjMTdmMzA0MzMyMGEwZmEyZDhkYjMwNWRiYzU1aGdxcG4ucG5n.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "corridor.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzU1MzZiODAyXzkzM2EwN2YyZWFmMGIxMmIyZDdhNWRmOTRhZTY1YTdiajZsdHQucG5n.origin?x-kcdn-pid=112372"
+   "name": "ravib.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2EwNGE3MzkyXzM3MjdiYjhkYjRkZGZhOTE4OTI1MTVmMDI1NzQ2ZDI1dDFraHgucG5n.origin?x-kcdn-pid=112372"
   }
  ]
 }
