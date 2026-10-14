@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>30 Days P3 Kit</title>
+<style>
+:root{--b:#1B4583;--g:#B8862B;--bg:#f4f7fc;--card:#fff;--t:#1d2433;--m:#5d6880}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1522;--card:#18213a;--t:#e8edf7;--m:#9aa6c0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--b);color:#fff;padding:18px 16px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;opacity:.85;font-size:13px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card{background:var(--card);border-radius:14px;padding:14px 16px;margin:0 0 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{margin:0 0 6px;font-size:16px;color:var(--b)}@media (prefers-color-scheme:dark){.card h2{color:#8fb4ee}}
+.row{display:flex;gap:8px;align-items:flex-start;margin:8px 0}.row pre{flex:1;margin:0;white-space:pre-wrap;word-break:break-word;background:rgba(27,69,131,.07);padding:8px 10px;border-radius:8px;font:13px/1.45 ui-monospace,Menlo,monospace}
+button{border:0;background:var(--b);color:#fff;border-radius:8px;padding:8px 12px;font-weight:600;cursor:pointer;flex:none}button.ok{background:#2e8b57}
+.tag{display:inline-block;background:var(--g);color:#fff;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;margin-right:6px}
+small{color:var(--m)}ul{margin:6px 0 0;padding-left:18px}
+</style></head><body>
+<header><h1>30 Days at KSL · Part 3 · Day 26</h1><p>Ma skipped dinner again. Then his phone lit up at 9:59. · 3 variants, one per night, three accounts</p></header>
+<main>
+<div class="card"><h2>Posting plan</h2>
+<ul><li><span class="tag">A</span>@alpro_account1 (main) · <b>Sat 17 Oct</b> · 8:30–9:30PM · file <code>Thirty_Days_P3_A_Video.mp4</code> · hook: "Ma, you didn't eat again?"</li>
+<li><span class="tag">B</span>@alpro_account5 · <b>Sun 18 Oct</b> · 8:30–9:30PM · file <code>Thirty_Days_P3_B_Video.mp4</code> · hook: "Who calls at 9:59 PM?"</li>
+<li><span class="tag">C</span>@alpro_account2 · <b>Mon 19 Oct</b> · 8:30–9:30PM · file <code>Thirty_Days_P3_C_Video.mp4</code> · hook: "Why didn't Ma touch her dinner?"</li></ul>
+<small>Use each variant's own cover (<code>_A/_B/_C_Video_cover.jpg</code>). Add to playlist <b>30 Days at KSL</b> after Part 2. Location: KSL City Mall. Turn ON the AI-generated content label.</small></div>
+
+<div class="card"><h2>Caption (same for A/B/C)</h2>
+<div class="row"><pre id="cap">Part 3 · Day 26 | Ma skipped dinner again. Then his phone lit up at 9:59.
+Some calls come at the worst minute.
+Should Ethan answer the call? A: answer / B: let it ring
+#30DaysKSL #JBdrama #KSLCityMall #shortdrama</pre><button data-c="cap">Copy</button></div></div>
+
+<div class="card"><h2>Hashtags</h2>
+<div class="row"><pre id="tags">#30DaysKSL #JBdrama #KSLCityMall #shortdrama</pre><button data-c="tags">Copy</button></div></div>
+
+<div class="card"><h2>Pinned comment</h2>
+<div class="row"><pre id="pin">Part 4 drops Tue 20 Oct 9PM. Playlist: 30 Days at KSL
+Should Ethan answer the call? A: answer / B: let it ring</pre><button data-c="pin">Copy</button></div></div>
+
+<div class="card"><h2>For staff</h2>
+<p>After posting, submit the TikTok link in the KOL app with Episode = <b>Thirty_Days_P3_A</b> (or <b>_B</b> / <b>_C</b> for your variant).</p>
+<small>Don't add prices, "free", or health claims in replies. If someone asks about eating on long shifts, invite them to walk in and ask a pharmacist (open till 10PM).</small></div>
+</main>
+<script>
+document.querySelectorAll('button[data-c]').forEach(b=>b.onclick=async()=>{
+  const t=document.getElementById(b.dataset.c).innerText;
+  try{await navigator.clipboard.writeText(t)}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.c));const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges()}
+  b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1400)});
+</script>
+</body></html>

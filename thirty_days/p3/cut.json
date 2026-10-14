@@ -1,0 +1,23 @@
+{"episode":"Thirty_Days_P3","badge":"DAY 26 · PART 3",
+ "hooks":{"A":"Ma, you didn't eat again?","B":"Who calls at 9:59 PM?","C":"Why didn't Ma touch her dinner?"},
+ "shots":[
+  {"clip":"g1.mp4","in":0.2,"out":4.3,"speech_in":0.94,"speech_out":3.99,"prompt":"G1 multi-shot: Ethan 'Ma, you didn't eat again?' / Ma 'After closing. Count first.' / untouched food container / Ma steadies herself on the counter / Ethan 'Ma. Come with me. Now.'","lines":[{"who":"Ethan","text":"Ma, you didn't eat again?"},{"who":"Ma","text":"After closing. Count first."}]},
+  {"image":"ravib.png","in":0,"out":6.6,"move":"in","ambience":"g1.mp4","vo":{"file":"n1.wav","at":0.2,"gain":0.7},"speech_in":0.2,"speech_out":5.8,"lines":[{"who":"Narrator","text":"Thirty days. One letter."},{"who":"Narrator","text":"And a guard who won't say who sent it."}]},
+  {"clip":"g1.mp4","in":4.3,"out":9.0,"lines":[]},
+  {"clip":"g1.mp4","in":9.0,"out":13.0,"speech_in":10.3,"speech_out":12.4,"lines":[{"who":"Ethan","text":"Ma. Come with me. Now."}]},
+  {"image":"corridor.png","in":0,"out":6.0,"move":"in","vo":{"file":"n2.wav","at":0.2,"gain":0.7},"speech_in":0.2,"speech_out":5.3,"lines":[{"who":"Narrator","text":"In this food court, the last light on belongs to the pharmacy."}]},
+  {"clip":"g2.mp4","in":0.3,"out":3.0,"speech_in":1.2,"speech_out":2.6,"prompt":"G2 multi-shot: Aaron consult at the pharmacy counter","lines":[{"who":"Aaron","text":"When did you last eat?"}]},
+  {"clip":"g2.mp4","in":3.0,"out":4.9,"speech_in":3.4,"speech_out":4.4,"lines":[{"who":"Ma","text":"Lunch. Maybe."}]},
+  {"clip":"g2.mp4","in":4.9,"out":7.6,"speech_in":5.0,"speech_out":7.3,"lines":[{"who":"Aaron","text":"Long nights, eat something small before the rush."}]},
+  {"clip":"g2.mp4","in":7.6,"out":10.9,"speech_in":7.9,"speech_out":10.2,"lines":[{"who":"Aaron","text":"If it happens again, see a doctor, okay?"}]},
+  {"clip":"g2.mp4","in":10.9,"out":12.9,"speech_in":12.2,"speech_out":12.7,"lines":[{"who":"Aaron","text":"And you?"}]},
+  {"image":"sf3.png","in":0,"out":3.0,"move":"in","ambience":"g3.mp4","vo":{"file":"n3.wav","at":0.2,"gain":0.7},"speech_in":0.2,"speech_out":2.8,"lines":[{"who":"Narrator","text":"Some calls come at the worst minute."}]},
+  {"clip":"g3.mp4","in":0,"out":8.9,"prompt":"G3 multi-shot: Ethan alone, phone glowing, thumb over decline, Ma eating in soft focus","lines":[],"overlays":[{"text":"SINGAPORE OFFICE","y":1000,"t0":0.4,"t1":4.8,"size":58}]},
+  {"image":"tiffin.png","in":0,"out":2.4,"move":"in","ambience":"g1.mp4","lines":[]}
+ ],
+ "endcard":{"cta":"Walk in before 10PM","outlet_line":"Alpro Pharmacy · KSL City Mall","teaser":"DAY 24: Who is really calling Ethan?","follow":"Follow so you don't miss Part 4","seconds":2.0},
+ "variants":{
+  "A":[0,1,2,3,4,5,6,7,8,9,10,[11,0,8.9,"9:59 PM"]],
+  "B":[[11,4.6,6.9,"9:59 PM"],[0,0.2,4.3,"20 MINUTES EARLIER"],1,2,3,4,5,6,7,8,9,10,[11,0,8.9,"9:59 PM"]],
+  "C":[12,0,1,2,3,4,5,6,7,8,9,10,[11,0,8.9,"9:59 PM"]]},
+ "tiktok":{"caption":"Part 3 · Day 26 | Ma skipped dinner again. Then his phone lit up at 9:59.","hashtags":["#30DaysKSL","#JBdrama","#KSLCityMall","#shortdrama"],"pinned_comment":"Part 4 drops Tue 20 Oct 9PM. Playlist: 30 Days at KSL","comment_question":"Should Ethan answer the call? A: answer / B: let it ring"}}
