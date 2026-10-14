@@ -1,21 +1,9 @@
 {
- "id": "p3_aaron",
+ "id": "p3_narr",
  "files": [
   {
-   "name": "a1.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qnwEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AahAFLbGluZ0FJX0tsaW5nQUlfS29sb3JzLXYzXzAtb21uaS10Mmktc3I0NV9kaXN0aWxsX1NHUF9QUk9EX2FpX3dlYl8zMjM5MTQxNzQzMDU3NTZfZWIwMjZlYTFfODgwYThlNjMxMDg3ZGVhMzY0ZTdlYWI1N2ZmMGMyNzMyaHBxNS5wbmc.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "a2.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qnwEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AahAFLbGluZ0FJX0tsaW5nQUlfS29sb3JzLXYzXzAtb21uaS10Mmktc3I0NV9kaXN0aWxsX1NHUF9QUk9EX2FpX3dlYl8zMjM5MTQxNzQzMTE3NjBfOWNlMzEzMGFfODdmZGFiNjZiMjc3OWMxMGJiNDZiODhlNzI2ZjI3NmZibHJxNi5wbmc.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "a3.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qnwEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AahAFLbGluZ0FJX0tsaW5nQUlfS29sb3JzLXYzXzAtb21uaS10Mmktc3I0NV9kaXN0aWxsX1NHUF9QUk9EX2FpX3dlYl8zMjM5MTQxNzQzMTE3NjZfYzIyNTdjZDJfNDI2YjA1ZGQ4MGUzZTZiOWE4ODYwZTIyZDM2NzFmMjF2dGNhbS5wbmc.origin?x-kcdn-pid=112372"
-  },
-  {
-   "name": "a4.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qnwEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AahAFLbGluZ0FJX0tsaW5nQUlfS29sb3JzLXYzXzAtb21uaS10Mmktc3I0NV9kaXN0aWxsX1NHUF9QUk9EX2FpX3dlYl8zMjM5MTQxNzQzMTE3NzNfNjEyNWIxNDNfYmU2N2Q5ZWFjOTA0YTllZjUwNDU2Y2M4NmEyMGE3MTRxbjRkaC5wbmc.origin?x-kcdn-pid=112372"
+   "name": "narr.wav",
+   "url": "https://resource2.heygen.ai/text_to_speech/771c899e3fc343329f1b5475862cbb2d/036ceb4857a34e8ca92d4b08904bf034/id=ed805efc-1213-4aca-ac37-2f6bc09f6301.wav"
   }
  ]
 }
