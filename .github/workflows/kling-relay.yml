@@ -31,7 +31,7 @@ jobs:
             NAME=$(jq -r ".files[$i].name" relay/request.json)
             URL=$(jq -r ".files[$i].url" relay/request.json)
             case "$NAME" in (*[!A-Za-z0-9_.-]*|"") echo "bad name $NAME"; exit 1;; esac
-            case "$URL" in (https://*.klingai.com/*|https://kling.ai/*|https://*.kling.ai/*) ;; (*) echo "url host not allowed: $NAME"; exit 1;; esac
+            case "$URL" in (https://*.klingai.com/*|https://kling.ai/*|https://*.kling.ai/*|https://*.heygen.ai/*) ;; (*) echo "url host not allowed: $NAME"; exit 1;; esac
             curl -sS -L --fail --retry 3 --max-time 300 -o "/tmp/out/out/$ID/$NAME" "$URL"
             SIZE=$(stat -c %s "/tmp/out/out/$ID/$NAME"); SHA=$(sha256sum "/tmp/out/out/$ID/$NAME" | cut -d' ' -f1)
             jq --arg n "$NAME" --argjson s "$SIZE" --arg h "$SHA" '. + [{name:$n,size:$s,sha256:$h}]' /tmp/m.json > /tmp/m2.json && mv /tmp/m2.json /tmp/m.json
