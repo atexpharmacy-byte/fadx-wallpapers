@@ -1,0 +1,26 @@
+{"episode":"Cinema_Last_Order_P1","badge":"LAST ORDER · PART 1",
+ "hooks":{"A":"Is fibermaxxing actually good for you?","B":"He fell asleep live. Again.","C":"What's Ma hiding in her apron?"},
+ "shots":[
+  {"clip":"g1.mp4","in":0.2,"out":5.0,"speech_in":1.44,"speech_out":4.64,"prompt":"G1 multi-shot: Ma's stall 9:30PM; Ethan yawning with car keys; Ma 'Car at one. Stall at nine. When you sleep?'; keys into her palm; Ethan 'Ma, TikTok says fibre in everything.' chia into her teh; Ma 'Not everything also.'; Ma tucks folded paper into apron","lines":[{"who":"Ma","text":"Car at one. Stall at nine. When you sleep?"}]},
+  {"clip":"g1.mp4","in":5.0,"out":7.0,"lines":[]},
+  {"clip":"g1.mp4","in":7.0,"out":9.7,"speech_in":7.25,"speech_out":9.57,"lines":[{"who":"Ethan","text":"Ma, TikTok says fibre in everything."}]},
+  {"clip":"g1.mp4","in":9.7,"out":11.7,"speech_in":10.1,"speech_out":11.6,"lines":[{"who":"Ma","text":"Not everything also."}]},
+  {"clip":"g1.mp4","in":11.7,"out":14.0,"lines":[]},
+  {"image":"s_asleep.png","in":0,"out":5.9,"move":"in","ambience":"g1.mp4","label":"9:40 PM","vo":{"file":"vo1.wav","at":0.3,"gain":0.7},"speech_in":0.6,"speech_out":5.3,"lines":[{"who":"Narrator","text":"Everyone at this stall is hiding something."},{"who":"Narrator","text":"Tonight, it's Ma."}]},
+  {"image":"corridor.png","in":0,"out":4.2,"move":"in","label":"9:45 PM","vo":{"file":"vo2.wav","at":0.3,"gain":0.7},"speech_in":0.65,"speech_out":3.7,"lines":[{"who":"Narrator","text":"Every hack ends up at the same counter."}]},
+  {"clip":"g2.mp4","in":0.0,"out":3.0,"speech_in":0.3,"speech_out":2.72,"prompt":"G2 multi-shot: Alpro KSL counter 9:45PM; Renee 'Doctor said more fibre? Start with your rice.' / taps Prof-Slow jar 'Two steps. Mix it in while it cooks.' / Ma sad smile / 'Can I guide you on meal preparation, Auntie?' / 'Your son needs the walk more than you.'","lines":[{"who":"Renee","text":"Doctor said more fibre? Start with your rice."}]},
+  {"clip":"g2.mp4","in":3.0,"out":6.0,"speech_in":3.27,"speech_out":5.57,"lines":[{"who":"Renee","text":"Two steps. Mix it in while it cooks."}]},
+  {"clip":"g2.mp4","in":6.0,"out":8.4,"lines":[]},
+  {"clip":"g2.mp4","in":8.4,"out":11.2,"speech_in":8.6,"speech_out":10.65,"lines":[{"who":"Renee","text":"Can I guide you on meal preparation, Auntie?"}]},
+  {"clip":"g2.mp4","in":11.2,"out":13.8,"speech_in":11.78,"speech_out":13.53,"lines":[{"who":"Renee","text":"Your son needs the walk more than you."}]},
+  {"clip":"mix.mp4","in":0.0,"out":5.0,"speech_in":0.5,"speech_out":4.5,"prompt":"turbo 5s: Ma mixes Prof-Slow powder into the rice before cooking","lines":[{"who":"Caption","text":"Two steps. Mix in, then cook."}]},
+  {"image":"s_walk2.png","in":0,"out":5.0,"move":"in","ambience":"g2.mp4","vo":{"file":"vo3.wav","at":0.2,"gain":0.7},"speech_in":0.5,"speech_out":4.6,"lines":[{"who":"Narrator","text":"Small swaps. Slow steps. Every night."}]},
+  {"image":"s_verdict.png","in":0,"out":2.8,"move":"in","ambience":"g1.mp4","speech_in":0.2,"speech_out":2.7,"lines":[{"who":"Verdict","text":"TRUE-ISH: fibre yes, chia in everything no."}]},
+  {"image":"s_959.png","in":0,"out":2.6,"move":"in","ambience":"g1.mp4","label":"9:59 PM","lines":[]}
+ ],
+ "endcard":{"cta":"Walk in before 10PM · ask our dietitian","outlet_line":"Alpro Pharmacy · KSL City Mall","teaser":"NEXT: What does Ma's paper say?","follow":"Follow for Part 2","seconds":2.0},
+ "variants":{
+  "A":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+  "B":[[5,0,2.6],[0,0.2,5.0,"10 MINUTES EARLIER"],1,2,3,4,6,7,8,9,10,11,12,13,14,15],
+  "C":[[4,11.7,14.0],0,1,2,3,5,6,7,8,9,10,11,12,13,14,15]},
+ "tiktok":{"caption":"Part 1 | Is fibermaxxing actually good for you? Last time: Ma found out about Ethan's 1AM car.","hashtags":["#LastOrderKSL","#fibermaxxing","#JBdrama","#KSLCityMall","#shortdrama"],"pinned_comment":"Part 2 drops in 3 days, 9PM. Which trend should we test next? Playlist: Last Order at KSL","comment_question":"Should Ethan read Ma's paper? A: read it / B: give it back"}}
