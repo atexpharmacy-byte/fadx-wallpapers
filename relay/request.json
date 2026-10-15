@@ -1,9 +1,13 @@
 {
- "id": "lo1f3",
+ "id": "lo1f4",
  "files": [
   {
-   "name": "f_g1b.png",
-   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfXzFhNTFhOWEwXzg3MTcwMWUwMTQ0YzE4MjhmYmEyNDg4NDBmYTA1Y2RkNzdoYjkucG5n.origin?x-kcdn-pid=112372"
+   "name": "s_walk2.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2RhOTNiMDkxX2E5NzVkOTI5MTc4YmRlNjMxMDZkY2ExYzU4MWU3YzcyOWl2cTMucG5n.origin?x-kcdn-pid=112372"
+  },
+  {
+   "name": "counter.png",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qfQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBpjS2xpbmdBSV9Lb2xvcnNfS29sb3JzLXYzXzAtb21uaS12Mi1pMmktc3ItdmFlX2RfX2QzZjZhMWQ3X2VhN2MyMDkxNmUxZGRhMjQ3NTk5ODM4ZjQ3OTQ5ZGY2Zm93Y3oucG5n.origin?x-kcdn-pid=112372"
   }
  ]
 }
