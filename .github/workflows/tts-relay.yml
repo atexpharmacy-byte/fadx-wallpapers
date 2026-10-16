@@ -1,0 +1,71 @@
+name: tts-relay
+# /cinema narrator route (no HeyGen): render narration on GitHub's servers with free TTS engines.
+# Trigger: push relay/tts.json to branch tts-in.
+# tts.json = {"id":"<run id>","lines":[{"name":"n1.wav","engine":"edge|kokoro","voice":"en-US-AvaNeural|af_heart","text":"...","rate":"-8%","pitch":"-2Hz","speed":0.9}]}
+# Result: branch relay-out (force-pushed) holds out/<id>/<name> + manifest.json (same format as kling-relay, so relay.sh pulls it).
+on:
+  push:
+    branches: [tts-in]
+    paths: [relay/tts.json]
+permissions:
+  contents: write
+concurrency:
+  group: kling-relay
+  cancel-in-progress: false
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: tts-in }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install engines
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          pip install -q edge-tts "kokoro>=0.9.4" soundfile
+      - name: Render
+        run: |
+          set -euo pipefail
+          ID=$(jq -r .id relay/tts.json)
+          case "$ID" in (*[!A-Za-z0-9_.-]*|"") echo "bad id"; exit 1;; esac
+          mkdir -p "/tmp/out/out/$ID"
+          python - "$ID" <<'PY'
+          import json, sys, os, re, asyncio, hashlib, subprocess
+          rid = sys.argv[1]; req = json.load(open("relay/tts.json")); out = f"/tmp/out/out/{rid}"
+          kp = {}
+          def kokoro(text, voice, speed, path):
+              from kokoro import KPipeline
+              import numpy as np, soundfile as sf
+              lang = voice[0]
+              if lang not in kp: kp[lang] = KPipeline(lang_code=lang)
+              audio = [a for _, _, a in kp[lang](text, voice=voice, speed=speed)]
+              sf.write(path, np.concatenate(audio), 24000)
+          async def edge(text, voice, rate, pitch, path):
+              import edge_tts
+              mp3 = path + ".mp3"
+              await edge_tts.Communicate(text, voice, rate=rate, pitch=pitch).save(mp3)
+              subprocess.run(["ffmpeg","-loglevel","error","-y","-i",mp3,"-ar","48000","-ac","1",path], check=True); os.remove(mp3)
+          man = []
+          for L in req["lines"]:
+              name = L["name"]
+              assert re.fullmatch(r"[A-Za-z0-9_.-]+\.wav", name), name
+              p = os.path.join(out, name)
+              if L.get("engine","edge") == "kokoro":
+                  kokoro(L["text"], L.get("voice","af_heart"), float(L.get("speed",0.9)), p)
+              else:
+                  asyncio.run(edge(L["text"], L.get("voice","en-US-AvaNeural"), L.get("rate","-8%"), L.get("pitch","-2Hz"), p))
+              b = open(p,"rb").read()
+              man.append({"name": name, "size": len(b), "sha256": hashlib.sha256(b).hexdigest()})
+              print("OK", name, len(b))
+          json.dump({"id": rid, "run": os.environ.get("GITHUB_RUN_ID"), "files": man}, open(f"{out}/manifest.json","w"), indent=1)
+          PY
+      - name: Publish to relay-out
+        run: |
+          set -euo pipefail
+          cd /tmp/out
+          git init -q -b relay-out
+          git config user.name "tts-relay"; git config user.email "tts-relay@users.noreply.github.com"
+          git add -A && git commit -qm "tts $(ls out)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" relay-out

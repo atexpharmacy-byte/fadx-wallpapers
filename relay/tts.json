@@ -1,0 +1,77 @@
+{
+ "id": "tts_sampler_1",
+ "lines": [
+  {
+   "name": "s1_enUSAvaNeural.wav",
+   "engine": "edge",
+   "voice": "en-US-AvaNeural",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s2_enUSEmmaNeural.wav",
+   "engine": "edge",
+   "voice": "en-US-EmmaNeural",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s3_enGBSoniaNeural.wav",
+   "engine": "edge",
+   "voice": "en-GB-SoniaNeural",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s4_enAUNatashaNeural.wav",
+   "engine": "edge",
+   "voice": "en-AU-NatashaNeural",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s5_enSGLunaNeural.wav",
+   "engine": "edge",
+   "voice": "en-SG-LunaNeural",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s6_af_heart.wav",
+   "engine": "kokoro",
+   "voice": "af_heart",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s7_af_bella.wav",
+   "engine": "kokoro",
+   "voice": "af_bella",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  },
+  {
+   "name": "s8_bf_emma.wav",
+   "engine": "kokoro",
+   "voice": "bf_emma",
+   "text": "Every night, someone brings a hack before last order.",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "speed": 0.88
+  }
+ ]
+}
