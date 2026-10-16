@@ -1,24 +1,301 @@
-{"episode":"Cinema_Last_Order_P2","badge":"LAST ORDER · PART 2",
- "hooks":{"A":"Is the 12-3-30 walk really that good?","B":"Uncle Ravi, why are you panting?","C":"The pharmacist's one question surprised him"},
- "shots":[
-  {"clip":"g1b.mp4","in":0.0,"out":3.2,"speech_in":0.1,"speech_out":2.7,"prompt":"G1 omni 14s (paper text blanked in post): Ma takes the blank paper back 'Not yours. Eat first.'; Ethan pockets phone, then 'Ma, TikTok says walk uphill thirty minutes.'; Ma 'Old ways are enough.'; Ma covers his phone lens with a kuih","lines":[{"who":"Ma","text":"Not yours. Eat first."}]},
-  {"clip":"g1b.mp4","in":3.2,"out":8.2,"speech_in":4.54,"speech_out":7.95,"lines":[{"who":"Ethan","text":"Ma, TikTok says walk uphill thirty minutes."}]},
-  {"clip":"g1b.mp4","in":8.2,"out":10.6,"speech_in":8.74,"speech_out":10.0,"lines":[{"who":"Ma","text":"Old ways are enough."}]},
-  {"clip":"g1b.mp4","in":10.6,"out":13.4,"lines":[]},
-  {"image":"s_ravi.png","in":0,"out":4.0,"move":"in","ambience":"g1.mp4","label":"9:46 PM","vo":{"file":"vo1.wav","at":0.3,"gain":0.8,"pitch":1,"bass":0},"speech_in":0.62,"speech_out":3.6,"prompt":"still: Ravi overhears from behind a pillar","lines":[{"who":"Narrator","text":"Every night, someone brings a hack before last order."}]},
-  {"image":"s_ramp.png","in":0,"out":4.2,"move":"in","ambience":"ramp.mp4","vo":{"file":"vo2.wav","at":0.2,"gain":0.8,"pitch":1,"bass":0},"speech_in":0.52,"speech_out":3.7,"prompt":"still: Ravi at the empty indoor service ramp","lines":[{"who":"Narrator","text":"Uncle Ravi found the steepest hill in the building."}]},
-  {"clip":"ramp.mp4","in":0.0,"out":4.6,"prompt":"turbo 5s silent: Ravi marches up the empty ramp, mildly winded at the top","lines":[]},
-  {"clip":"g2.mp4","in":0.6,"out":2.6,"speech_in":1.13,"speech_out":2.17,"prompt":"G2 omni 14s: Alpro counter, Ravi 'Just my round.' / Jocelyn 'Sit first, Uncle. Can you talk while you walk?' / Ravi 'Talk? Not on that hill.' / Jocelyn 'If it feels off, see your doctor, okay?'; Prof-Slow jar on counter","lines":[{"who":"Ravi","text":"Just my round."}]},
-  {"clip":"g2.mp4","in":2.6,"out":6.7,"lines":[{"who":"Jocelyn","text":"Sit first, Uncle."},{"who":"Jocelyn","text":"Can you talk while you walk?"}]},
-  {"clip":"g2.mp4","in":6.7,"out":10.3,"speech_in":7.36,"speech_out":9.96,"lines":[{"who":"Ravi","text":"Talk? Not on that hill."}]},
-  {"clip":"g2.mp4","in":10.3,"out":14.0,"speech_in":10.67,"speech_out":12.83,"lines":[{"who":"Jocelyn","text":"If it feels off, see your doctor, okay?"}]},
-  {"image":"s_walk.png","in":0,"out":4.3,"move":"in","ambience":"g2.mp4","vo":{"file":"vo3.wav","at":0.3,"gain":0.8,"pitch":1,"bass":0},"speech_in":0.6,"speech_out":3.7,"prompt":"still: Ravi and Ma walking the flat corridor, talking","lines":[{"who":"Narrator","text":"Any steady walk counts, even after a meal."}]},
-  {"image":"s_walk.png","in":0,"out":3.4,"move":"out","ambience":"g2.mp4","speech_in":0.15,"speech_out":3.3,"lines":[{"who":"Verdict","text":"TRUE-ISH: Good workout, not magic. A steady walk after meals counts."}]},
-  {"image":"s_959b.png","in":0,"out":2.6,"move":"in","ambience":"g1.mp4","label":"9:59 PM","lines":[]}
+{
+ "episode": "Cinema_Last_Order_P2",
+ "badge": "LAST ORDER · PART 2",
+ "hooks": {
+  "A": "Is the 12-3-30 walk really that good?",
+  "B": "Uncle Ravi, why are you panting?",
+  "C": "The pharmacist's one question surprised him"
+ },
+ "shots": [
+  {
+   "clip": "g1b.mp4",
+   "in": 0.0,
+   "out": 3.2,
+   "speech_in": 0.1,
+   "speech_out": 2.7,
+   "prompt": "G1 omni 14s (paper text blanked in post): Ma takes the blank paper back 'Not yours. Eat first.'; Ethan pockets phone, then 'Ma, TikTok says walk uphill thirty minutes.'; Ma 'Old ways are enough.'; Ma covers his phone lens with a kuih",
+   "lines": [
+    {
+     "who": "Ma",
+     "text": "Not yours. Eat first."
+    }
+   ]
+  },
+  {
+   "clip": "g1b.mp4",
+   "in": 3.2,
+   "out": 8.2,
+   "speech_in": 4.54,
+   "speech_out": 7.95,
+   "lines": [
+    {
+     "who": "Ethan",
+     "text": "Ma, TikTok says walk uphill thirty minutes."
+    }
+   ]
+  },
+  {
+   "clip": "g1b.mp4",
+   "in": 8.2,
+   "out": 10.6,
+   "speech_in": 8.74,
+   "speech_out": 10.0,
+   "lines": [
+    {
+     "who": "Ma",
+     "text": "Old ways are enough."
+    }
+   ]
+  },
+  {
+   "clip": "g1b.mp4",
+   "in": 10.6,
+   "out": 13.4,
+   "lines": []
+  },
+  {
+   "image": "s_ravi.png",
+   "in": 0,
+   "out": 4.0,
+   "move": "in",
+   "ambience": "g1.mp4",
+   "label": "9:46 PM",
+   "vo": {
+    "file": "ava1.wav",
+    "at": 0.3,
+    "gain": 0.8,
+    "pitch": 1,
+    "bass": 0
+   },
+   "speech_in": 0.56,
+   "speech_out": 3.78,
+   "prompt": "still: Ravi overhears from behind a pillar",
+   "lines": [
+    {
+     "who": "Narrator",
+     "text": "Every night, someone brings a hack before last order."
+    }
+   ]
+  },
+  {
+   "image": "s_ramp.png",
+   "in": 0,
+   "out": 4.2,
+   "move": "in",
+   "ambience": "ramp.mp4",
+   "vo": {
+    "file": "ava2.wav",
+    "at": 0.2,
+    "gain": 0.8,
+    "pitch": 1,
+    "bass": 0
+   },
+   "speech_in": 0.46,
+   "speech_out": 3.32,
+   "prompt": "still: Ravi at the empty indoor service ramp",
+   "lines": [
+    {
+     "who": "Narrator",
+     "text": "Uncle Ravi found the steepest hill in the building."
+    }
+   ]
+  },
+  {
+   "clip": "ramp.mp4",
+   "in": 0.0,
+   "out": 4.6,
+   "prompt": "turbo 5s silent: Ravi marches up the empty ramp, mildly winded at the top",
+   "lines": []
+  },
+  {
+   "clip": "g2.mp4",
+   "in": 0.6,
+   "out": 2.6,
+   "speech_in": 1.13,
+   "speech_out": 2.17,
+   "prompt": "G2 omni 14s: Alpro counter, Ravi 'Just my round.' / Jocelyn 'Sit first, Uncle. Can you talk while you walk?' / Ravi 'Talk? Not on that hill.' / Jocelyn 'If it feels off, see your doctor, okay?'; Prof-Slow jar on counter",
+   "lines": [
+    {
+     "who": "Ravi",
+     "text": "Just my round."
+    }
+   ]
+  },
+  {
+   "clip": "g2.mp4",
+   "in": 2.6,
+   "out": 6.7,
+   "lines": [
+    {
+     "who": "Jocelyn",
+     "text": "Sit first, Uncle."
+    },
+    {
+     "who": "Jocelyn",
+     "text": "Can you talk while you walk?"
+    }
+   ]
+  },
+  {
+   "clip": "g2.mp4",
+   "in": 6.7,
+   "out": 10.3,
+   "speech_in": 7.36,
+   "speech_out": 9.96,
+   "lines": [
+    {
+     "who": "Ravi",
+     "text": "Talk? Not on that hill."
+    }
+   ]
+  },
+  {
+   "clip": "g2.mp4",
+   "in": 10.3,
+   "out": 14.0,
+   "speech_in": 10.67,
+   "speech_out": 12.83,
+   "lines": [
+    {
+     "who": "Jocelyn",
+     "text": "If it feels off, see your doctor, okay?"
+    }
+   ]
+  },
+  {
+   "image": "s_walk.png",
+   "in": 0,
+   "out": 4.3,
+   "move": "in",
+   "ambience": "g2.mp4",
+   "vo": {
+    "file": "ava3.wav",
+    "at": 0.3,
+    "gain": 0.8,
+    "pitch": 1,
+    "bass": 0
+   },
+   "speech_in": 0.56,
+   "speech_out": 3.72,
+   "prompt": "still: Ravi and Ma walking the flat corridor, talking",
+   "lines": [
+    {
+     "who": "Narrator",
+     "text": "Slow beats steep."
+    },
+    {
+     "who": "Narrator",
+     "text": "Any steady walk counts."
+    }
+   ]
+  },
+  {
+   "image": "s_walk.png",
+   "in": 0,
+   "out": 3.4,
+   "move": "out",
+   "ambience": "g2.mp4",
+   "speech_in": 0.15,
+   "speech_out": 3.3,
+   "lines": [
+    {
+     "who": "Verdict",
+     "text": "TRUE-ISH: Good workout, not magic. A steady walk after meals counts."
+    }
+   ]
+  },
+  {
+   "image": "s_959b.png",
+   "in": 0,
+   "out": 2.6,
+   "move": "in",
+   "ambience": "g1.mp4",
+   "label": "9:59 PM",
+   "lines": []
+  }
  ],
- "endcard":{"cta":"Walk in before 10PM · ask our pharmacist","outlet_line":"Alpro Pharmacy · KSL City Mall","teaser":"NEXT: Where is Ma walking to?","follow":"Follow for Part 3","seconds":2.0},
- "variants":{
-  "A":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],
-  "B":[[6,2.4,4.6],[0,0.0,3.2,"10 MINUTES EARLIER"],1,2,3,4,5,6,7,8,9,10,11,12,13],
-  "C":[[8,4.6,6.7],0,1,2,3,4,5,6,7,8,9,10,11,12,13]},
- "tiktok":{"caption":"Part 2 | Is the 12-3-30 walk really that good? Last time: Ma's paper slipped. Ethan picked it up. At the counter: Prof. Slow Smart Fibre for Rice.","hashtags":["#LastOrderKSL","#12330workout","#JBdrama","#KSLCityMall","#shortdrama"],"pinned_comment":"Part 3 drops in 3 days, 9PM. Which trend should we test next? Playlist: Last Order at KSL","comment_question":"Your walk? A: 12-3-30 on the treadmill / B: a steady walk after dinner"}}
+ "endcard": {
+  "cta": "Walk in before 10PM · ask our pharmacist",
+  "outlet_line": "Alpro Pharmacy · KSL City Mall",
+  "teaser": "NEXT: Where is Ma walking to?",
+  "follow": "Follow for Part 3",
+  "seconds": 2.0
+ },
+ "variants": {
+  "A": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "B": [
+   [
+    6,
+    2.4,
+    4.6
+   ],
+   [
+    0,
+    0.0,
+    3.2,
+    "10 MINUTES EARLIER"
+   ],
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "C": [
+   [
+    8,
+    4.6,
+    6.7
+   ],
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ]
+ },
+ "tiktok": {
+  "caption": "Part 2 | Is the 12-3-30 walk really that good? Last time: Ma's paper slipped. Ethan picked it up. At the counter: Prof. Slow Smart Fibre for Rice.",
+  "hashtags": [
+   "#LastOrderKSL",
+   "#12330workout",
+   "#JBdrama",
+   "#KSLCityMall",
+   "#shortdrama"
+  ],
+  "pinned_comment": "Part 3 drops in 3 days, 9PM. Which trend should we test next? Playlist: Last Order at KSL",
+  "comment_question": "Your walk? A: 12-3-30 on the treadmill / B: a steady walk after dinner"
+ }
+}

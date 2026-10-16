@@ -1,0 +1,4 @@
+{"id":"cin_p2_ava","lines":[
+ {"name":"ava1.wav","engine":"edge","voice":"en-US-AvaNeural","text":"Every night, someone brings a hack before last order.","rate":"-10%","pitch":"-2Hz"},
+ {"name":"ava2.wav","engine":"edge","voice":"en-US-AvaNeural","text":"Uncle Ravi found the steepest hill in the building.","rate":"-10%","pitch":"-2Hz"},
+ {"name":"ava3.wav","engine":"edge","voice":"en-US-AvaNeural","text":"Slow beats steep. Any steady walk counts.","rate":"-10%","pitch":"-2Hz"}]}
