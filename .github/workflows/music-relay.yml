@@ -1,0 +1,46 @@
+name: music-relay
+# /cinema soundtrack library: fetch royalty-free tracks (and listing pages for discovery) on GitHub's servers.
+# Trigger: push relay/music.json to branch music-in.
+# music.json = {"id":"<run id>","files":[{"name":"x.mp3|x.html","url":"https://..."}]}  hosts: mixkit / pixabay only.
+# Result: branch relay-out (force-pushed) holds out/<id>/<name> + manifest.json (same format as kling-relay).
+on:
+  push:
+    branches: [music-in]
+    paths: [relay/music.json]
+permissions:
+  contents: write
+concurrency:
+  group: kling-relay
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: music-in }
+      - name: Download
+        run: |
+          set -uo pipefail
+          ID=$(jq -r .id relay/music.json)
+          case "$ID" in (*[!A-Za-z0-9_.-]*|"") echo "bad id"; exit 1;; esac
+          mkdir -p "/tmp/out/out/$ID"; echo '[]' > /tmp/m.json
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          n=$(jq '.files|length' relay/music.json)
+          for i in $(seq 0 $((n-1))); do
+            NAME=$(jq -r ".files[$i].name" relay/music.json); URL=$(jq -r ".files[$i].url" relay/music.json)
+            case "$NAME" in (*[!A-Za-z0-9_.-]*|"") echo "bad name"; continue;; esac
+            case "$URL" in (https://mixkit.co/*|https://assets.mixkit.co/*|https://pixabay.com/*|https://cdn.pixabay.com/*) ;; (*) echo "host not allowed: $NAME"; continue;; esac
+            if curl -sS -L --fail --retry 2 --max-time 120 -A "$UA" -H "Referer: https://mixkit.co/" -o "/tmp/out/out/$ID/$NAME" "$URL"; then
+              SIZE=$(stat -c %s "/tmp/out/out/$ID/$NAME"); SHA=$(sha256sum "/tmp/out/out/$ID/$NAME" | cut -d' ' -f1)
+              jq --arg n "$NAME" --argjson s "$SIZE" --arg h "$SHA" '. + [{name:$n,size:$s,sha256:$h}]' /tmp/m.json > /tmp/m2.json && mv /tmp/m2.json /tmp/m.json
+            else echo "FAILED $NAME"; rm -f "/tmp/out/out/$ID/$NAME"; fi
+          done
+          jq --arg id "$ID" '{id:$id,files:.}' /tmp/m.json > "/tmp/out/out/$ID/manifest.json"; cat "/tmp/out/out/$ID/manifest.json"
+      - name: Publish to relay-out
+        run: |
+          set -euo pipefail
+          cd /tmp/out && git init -q -b relay-out
+          git config user.name "music-relay"; git config user.email "music-relay@users.noreply.github.com"
+          git add -A && git commit -qm "music $(ls out)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" relay-out
