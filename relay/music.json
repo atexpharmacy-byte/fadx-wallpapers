@@ -1,1 +1,45 @@
-{"id":"init","files":[]}
+{
+ "id": "disc1",
+ "files": [
+  {
+   "name": "mk_happy.html",
+   "url": "https://mixkit.co/free-stock-music/mood/happy/"
+  },
+  {
+   "name": "mk_sad.html",
+   "url": "https://mixkit.co/free-stock-music/mood/sad/"
+  },
+  {
+   "name": "mk_suspense.html",
+   "url": "https://mixkit.co/free-stock-music/mood/suspense/"
+  },
+  {
+   "name": "mk_chill.html",
+   "url": "https://mixkit.co/free-stock-music/mood/chill/"
+  },
+  {
+   "name": "mk_uplift.html",
+   "url": "https://mixkit.co/free-stock-music/mood/uplifting/"
+  },
+  {
+   "name": "mk_romantic.html",
+   "url": "https://mixkit.co/free-stock-music/mood/romantic/"
+  },
+  {
+   "name": "mk_acoustic.html",
+   "url": "https://mixkit.co/free-stock-music/genre/acoustic/"
+  },
+  {
+   "name": "mk_lofi.html",
+   "url": "https://mixkit.co/free-stock-music/genre/lo-fi/"
+  },
+  {
+   "name": "pb_test.html",
+   "url": "https://pixabay.com/music/search/mood/feel%20good/"
+  },
+  {
+   "name": "mk_license.html",
+   "url": "https://mixkit.co/license/"
+  }
+ ]
+}
