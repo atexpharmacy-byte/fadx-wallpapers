@@ -1,89 +1,77 @@
 {
- "id": "disc2",
+ "id": "lib1",
  "files": [
   {
-   "name": "humorous.html",
-   "url": "https://mixkit.co/free-stock-music/mood/humorous/"
+   "name": "comedy_2.mp3",
+   "url": "https://assets.mixkit.co/music/2/2.mp3"
   },
   {
-   "name": "playful.html",
-   "url": "https://mixkit.co/free-stock-music/mood/playful/"
+   "name": "comedy_514.mp3",
+   "url": "https://assets.mixkit.co/music/514/514.mp3"
   },
   {
-   "name": "dramedy.html",
-   "url": "https://mixkit.co/free-stock-music/tag/dramedy/"
+   "name": "comedy_647.mp3",
+   "url": "https://assets.mixkit.co/music/647/647.mp3"
   },
   {
-   "name": "ukulele.html",
-   "url": "https://mixkit.co/free-stock-music/instrument/ukulele/"
+   "name": "tender_599.mp3",
+   "url": "https://assets.mixkit.co/music/599/599.mp3"
   },
   {
-   "name": "tender.html",
-   "url": "https://mixkit.co/free-stock-music/mood/tender/"
+   "name": "tender_530.mp3",
+   "url": "https://assets.mixkit.co/music/530/530.mp3"
   },
   {
-   "name": "sentimental.html",
-   "url": "https://mixkit.co/free-stock-music/mood/sentimental/"
+   "name": "tender_955.mp3",
+   "url": "https://assets.mixkit.co/music/955/955.mp3"
   },
   {
-   "name": "family.html",
-   "url": "https://mixkit.co/free-stock-music/tag/family/"
+   "name": "mystery_615.mp3",
+   "url": "https://assets.mixkit.co/music/615/615.mp3"
   },
   {
-   "name": "piano.html",
-   "url": "https://mixkit.co/free-stock-music/instrument/piano/"
+   "name": "mystery_658.mp3",
+   "url": "https://assets.mixkit.co/music/658/658.mp3"
   },
   {
-   "name": "mysterious.html",
-   "url": "https://mixkit.co/free-stock-music/mood/mysterious/"
+   "name": "mystery_188.mp3",
+   "url": "https://assets.mixkit.co/music/188/188.mp3"
   },
   {
-   "name": "mystery.html",
-   "url": "https://mixkit.co/free-stock-music/tag/mystery/"
+   "name": "local_529.mp3",
+   "url": "https://assets.mixkit.co/music/529/529.mp3"
   },
   {
-   "name": "suspenseful.html",
-   "url": "https://mixkit.co/free-stock-music/mood/suspenseful/"
+   "name": "local_466.mp3",
+   "url": "https://assets.mixkit.co/music/466/466.mp3"
   },
   {
-   "name": "world.html",
-   "url": "https://mixkit.co/free-stock-music/world/"
+   "name": "local_797.mp3",
+   "url": "https://assets.mixkit.co/music/797/797.mp3"
   },
   {
-   "name": "warm.html",
-   "url": "https://mixkit.co/free-stock-music/mood/warm/"
+   "name": "upbeat_1077.mp3",
+   "url": "https://assets.mixkit.co/music/1077/1077.mp3"
   },
   {
-   "name": "cooking.html",
-   "url": "https://mixkit.co/free-stock-music/tag/cooking/"
+   "name": "upbeat_282.mp3",
+   "url": "https://assets.mixkit.co/music/282/282.mp3"
   },
   {
-   "name": "friendly.html",
-   "url": "https://mixkit.co/free-stock-music/mood/friendly/"
+   "name": "upbeat_989.mp3",
+   "url": "https://assets.mixkit.co/music/989/989.mp3"
   },
   {
-   "name": "upbeat.html",
-   "url": "https://mixkit.co/free-stock-music/mood/upbeat/"
+   "name": "reflective_22.mp3",
+   "url": "https://assets.mixkit.co/music/22/22.mp3"
   },
   {
-   "name": "energetic.html",
-   "url": "https://mixkit.co/free-stock-music/mood/energetic/"
+   "name": "reflective_184.mp3",
+   "url": "https://assets.mixkit.co/music/184/184.mp3"
   },
   {
-   "name": "lofi.html",
-   "url": "https://mixkit.co/free-stock-music/lo-fi-beats/"
-  },
-  {
-   "name": "reflective.html",
-   "url": "https://mixkit.co/free-stock-music/mood/reflective/"
-  },
-  {
-   "name": "nostalgic.html",
-   "url": "https://mixkit.co/free-stock-music/mood/nostalgic/"
-  },
-  {
-   "name": "calm.html",
-   "url": "https://mixkit.co/free-stock-music/mood/calm/"
+   "name": "reflective_543.mp3",
+   "url": "https://assets.mixkit.co/music/543/543.mp3"
   }
  ]
 }
