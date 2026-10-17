@@ -1,0 +1,35 @@
+{
+ "brief_id": "KSL-20261006-1",
+ "outlet": "KSL",
+ "host": "Pharmacist Jocelyn",
+ "avatar": "Working daughter (30s-40s) whose Pa keeps medicines in three places",
+ "problem": "Pa's medicines are scattered and nobody is sure which are current",
+ "reward": "One bag, three checks",
+ "retain": "list",
+ "promised": 3,
+ "hooks": [
+  {
+   "v": "A",
+   "text": "Morning pills or night pills? Pa wasn't sure either.",
+   "type": "story-question"
+  },
+  {
+   "v": "B",
+   "text": "Pa's medicines live in three different places?",
+   "type": "yes-question"
+  },
+  {
+   "v": "C",
+   "text": "Three things to check in your parents' medicine bag.",
+   "type": "number promise"
+  }
+ ],
+ "cta": "Medicine Review",
+ "cta_keywords": [
+  "medicine review"
+ ],
+ "offer_name": "Pa's One-Bag Medicine Review",
+ "offer_ok": false,
+ "variants": 3,
+ "real_likeness": false
+}

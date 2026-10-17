@@ -1,0 +1,303 @@
+{
+ "badge": "Straight Talk · Ep 2",
+ "hook_text": "Three things to check in Pa's bag",
+ "host_label": "Pharmacist Jocelyn · Alpro KSL",
+ "ai_tag": true,
+ "ai_tag_text": "AI-generated",
+ "host_tag": true,
+ "sting": false,
+ "reward_items": [
+  "1 Name on the label",
+  "2 Expiry on every box",
+  "3 Still taking it now?"
+ ],
+ "scenes": [
+  {
+   "clip": "clip_01.mp4",
+   "line": "Three things to check in your parents' medicine bag.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189575650888",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. tight close-up at eye level, looking straight into the lens with a small surprised smile, holding a plain blank white paper bag low in frame, inside <<<324189575650888>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> rushes into frame holding a plain unbranded medicine bag, then stops completely and turns to the lens, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"Three things to check in your parents' medicine bag.\" Natural store ambience, no music, no on-screen text, no subtitles. <<<324189575650888>>>",
+    "generation_id": "ARFUgzHhYB0j9rf68NxhNAznVhXH6Xbhp_5T0nzCs_JUDVUtZ7baoEgN5BZ7Uqo1lP1Icrzg",
+    "start_frame_generation_id": "AXx0tzIFQmdJPXVS-Vgdp-Be38nBCY0putCgm8bn1YQVYlybnydisd7xyyx31ok99Ok3YS1H"
+   }
+  },
+  {
+   "clip": "clip_02.mp4",
+   "line": "One bag tonight. Then check three things.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189571682387",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. medium shot from the front, slightly left, lifting a plain blank white paper bag onto the white dispensary counter, looking at the lens, inside <<<324189571682387>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> lifts the plain unbranded medicine bag onto the white dispensary counter, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"One bag tonight. Then check three things.\" Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189571682387>>>",
+    "generation_id": "Aaa4joy70kygnyZxAxpKOugOm5pKg8U6kTHIRk4n90BiYQKMzf_LM_uLabJmQpY-uzeBPQXe",
+    "start_frame_generation_id": ""
+   }
+  },
+  {
+   "clip": "clip_03.mp4",
+   "line": "Old and new boxes look alike.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189571682387",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. side-on medium shot with her face turned toward the lens, standing at the white dispensary counter, plain blank white boxes and tubes lined up in a row in the foreground, smiling at the lens, inside <<<324189571682387>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> lines up plain blank white medicine boxes in a row on the counter, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"Old and new boxes look alike.\" All boxes and tubes are plain matte white with no printing, no labels, no logos and no text of any kind. Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189571682387>>>",
+    "generation_id": "AXkG3eCD6gWhSA9k2k_ZeqdEESue-VG8SMMG5bRMA2Vs3zH7rg36TAs4FQm_cTFXRNJ_cLEE",
+    "start_frame_generation_id": ""
+   },
+   "clip_in": 1.6,
+   "clip_out": 4.04,
+   "short": false
+  },
+  {
+   "clip": "clip_04.mp4",
+   "line": "One. Whose name is on the label? Pa's.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189571682387",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. close-up from a low side angle, holding one plain blank white box up beside her face and tapping its side with one finger, looking at the lens, inside <<<324189571682387>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> holds one plain unbranded medicine box up beside her face and points at its label area, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"One. Whose name is on the label? Pa's.\" Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189571682387>>>",
+    "generation_id": "AahdzBTQAWBGTA-nVr9XSQ5ZAKTY1XV9RjiCMbp_rjCJvCc4NTyoj1BFww1oCA8PsgJqiAcZ",
+    "start_frame_generation_id": ""
+   },
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "1 Name on the label",
+     "x": 540,
+     "y": 1200,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "clip": "clip_05.mp4",
+   "line": "Two. Check the expiry date on every box.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189571682387",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. medium-close three-quarter angle, turning a plain blank white box over in both hands to check its end flap, then glancing up at the lens, inside <<<324189571682387>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> turns a plain unbranded box over in both hands, checking the end flap, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"Two. Check the expiry date on every box.\" Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189571682387>>>",
+    "generation_id": "ASqGL5Vl8UQ8WWLYUrdgOcmpU7s19K25SmS-hCeJEBjD17kNXq5egIIaGEbQPoav1vw6Oxni",
+    "start_frame_generation_id": ""
+   },
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "2 Expiry on every box",
+     "x": 540,
+     "y": 1200,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ],
+   "broll": {
+    "clip": "broll1.mp4",
+    "at": 1.0,
+    "len": 1.5,
+    "tool": "image_to_video",
+    "model": "kling-video-v3_0_turbo",
+    "seconds": 3,
+    "start_prompt": "Photorealistic close-up, top-down view of two hands turning a plain unbranded white medicine box on a white counter to show its end flap, soft store light, natural skin texture. No text, no logos.",
+    "prompt": "Photorealistic, slow gentle movement, the hands tilt the plain unbranded box toward the lens, silent, soft store light."
+   }
+  },
+  {
+   "clip": "clip_06.mp4",
+   "line": "Three. Ask Pa which ones he takes now.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 4,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189575650888",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. waist-up shot from slightly below, gesturing with one open palm as if asking someone beside the lens, looking at the lens, warm expression, inside <<<324189575650888>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> gestures with one open palm as if asking someone beside the lens, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"Three. Ask Pa which ones he takes now.\" Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189575650888>>>",
+    "generation_id": "AWYy5r6TCOIR8XyzMj_J6YkrpzbW0h3owLzpCQ8-Ak7pX8uFxsRq4C1M1LQtxgKWROqK6qwO",
+    "start_frame_generation_id": ""
+   },
+   "elements": [
+    {
+     "type": "rect",
+     "box": [
+      90,
+      1150,
+      990,
+      1250
+     ],
+     "r": 50,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "3 Still taking it now?",
+     "x": 540,
+     "y": 1200,
+     "size": 44,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  {
+   "clip": "clip_07.mp4",
+   "line": "Bring the bag to me at Alpro KSL City Mall, and ask for a Medicine Review. Your doctor's plan comes first.",
+   "who": "Pharmacist Jocelyn",
+   "kling": {
+    "tool": "omni_ref_video",
+    "model": "kling-video-v3_0_omni",
+    "seconds": 9,
+    "resolution": "1080p",
+    "host_element": "324189447318451",
+    "scene_element": "324189571682387",
+    "still_prompt": "Photorealistic cinematic vertical 9:16 frame. <<<324189447318451>>> is the only person in frame: the same woman as the reference image, early 40s, shoulder-length black hair with a side part, thin round tortoiseshell glasses, small mole beside the left eyebrow, white pharmacist coat over a royal-blue polo, blue lanyard with a blank badge, her face clearly visible. wide-to-medium shot from the customer side of the counter, standing behind the white dispensary counter with both hands spread in a welcoming gesture, smiling at the lens, inside <<<324189571682387>>>, soft store light, shallow depth of field, natural skin texture. All boxes and bags are plain matte white with no printing of any kind.",
+    "video_prompt": "Photorealistic cinematic real-human footage, vertical 9:16, steady camera, natural skin and eye detail, soft real-store lighting. <<<324189447318451>>> stands behind the white dispensary counter and spreads both hands in a welcoming gesture, looks straight into the lens and says in a warm, unhurried woman's voice, Malaysian English, patient and kind: \"Bring the bag to me at Alpro KSL City Mall, and ask for a Medicine Review. Your doctor's plan comes first.\" Natural store ambience, no music, no on-screen text, no subtitles. She is already in frame from the first frame, holds the framing of the start image, no walking in, no readable text or signage in focus. <<<324189571682387>>>",
+    "generation_id": "AToI7n4LaoBZBtAGgCUChllTuAihXROzpFRHMH234Aco-gvPMc2Lwf7_9uqzeGrG7wbCQz6r",
+    "start_frame_generation_id": ""
+   }
+  },
+  {
+   "line": "",
+   "bg": [
+    [
+     255,
+     255,
+     255
+    ],
+    [
+     222,
+     234,
+     248
+    ]
+   ],
+   "elements": [
+    {
+     "type": "logo",
+     "x": 540,
+     "y": 560,
+     "size": 640
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      990,
+      930,
+      1140
+     ],
+     "r": 75,
+     "fill": [
+      27,
+      69,
+      131
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Medicine Review",
+     "x": 540,
+     "y": 1065,
+     "size": 60,
+     "color": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "type": "text",
+     "text": "KSL City Mall · Johor Bahru",
+     "x": 540,
+     "y": 1225,
+     "size": 50,
+     "color": [
+      27,
+      69,
+      131
+     ]
+    }
+   ]
+  }
+ ],
+ "music": {
+  "file": "music/tender_530.mp3",
+  "start": 0,
+  "gain_db": -12,
+  "duck": true
+ }
+}
