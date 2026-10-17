@@ -72,7 +72,11 @@
    "asset": "https://assets.mixkit.co/music/530/530.mp3",
    "license": "Mixkit Stock Music Free License (https://mixkit.co/license/#musicFree): commercial use incl. social media marketing, no attribution required; do not redistribute the track on its own",
    "lufs": -18,
-   "used_in": []
+   "used_in": [
+    "Straight_Talk_Ep2_A",
+    "Straight_Talk_Ep2_B",
+    "Straight_Talk_Ep2_C"
+   ]
   },
   {
    "file": "music/tender_955.mp3",
