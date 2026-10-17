@@ -1,9 +1,21 @@
 {
- "id": "ep2_broll",
+ "id": "ep2_clips_b1",
  "files": [
   {
-   "name": "broll1.mp4",
-   "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/83cb9ddb-6877-401f-aef3-494a4d82b08c-GXD2ZjDeMmmxM7SBMcXkng-output.mp4?x-kcdn-pid=112372"
+   "name": "clip_02.mp4",
+   "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/69c74efd-273e-4191-a60a-72ef3533f44d-yNihNXgDWDVv8B84jPMpdg-output.mp4?x-kcdn-pid=112372"
+  },
+  {
+   "name": "clip_03.mp4",
+   "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/d183048e-b926-48ec-9866-c02becd83a4a-izYCecPXUczUcbe5HXwWpQ-output.mp4?x-kcdn-pid=112372"
+  },
+  {
+   "name": "clip_04.mp4",
+   "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/29d10a85-4183-4213-ac8b-25ede3dc773c-KaHFbmwWJ4YLyR12DB8bKw-output.mp4?x-kcdn-pid=112372"
+  },
+  {
+   "name": "hook_B.mp4",
+   "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/3735e200-f0cc-46ab-8dd8-7a8782d7c6a6-it6XAqVptr6xM7SBMcXkng-output.mp4?x-kcdn-pid=112372"
   }
  ]
 }
