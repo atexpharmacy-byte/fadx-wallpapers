@@ -1,0 +1,16 @@
+{
+  "id": "ep2_clips_b3",
+  "run": "39012578970",
+  "files": [
+    {
+      "name": "clip_05.mp4",
+      "size": 5227757,
+      "sha256": "5c436546db337dceb49e241a92a763c6cc267beadc06f5ee38343c0c296a9e7d"
+    },
+    {
+      "name": "clip_03.mp4",
+      "size": 5449550,
+      "sha256": "de8566fdfa36fab6633fe9d8438842d006c2cf8d0f9e31d35dbf0e399719d741"
+    }
+  ]
+}
